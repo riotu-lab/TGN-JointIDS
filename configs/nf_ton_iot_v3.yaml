@@ -1,0 +1,127 @@
+# =============================================================================
+# TGN-JointIDS — NF-ToN-IoT-v3 (primary benchmark, Sections 4–6)
+# Defaults reproduce the configuration used for the reported results.
+# =============================================================================
+experiment_name: nf_ton_iot_v3
+
+paths:
+  flows_csv: data/raw/NF-ToN-IoT-v3_exp2_common20_rare100.csv
+  graphs: data/processed/nf_ton_iot_v3_graphs.pt
+  output_dir: results/nf_ton_iot_v3
+
+data:
+  benign_label: benign
+  # Fixed class order -> stable label ids across runs (0 must be benign).
+  classes: [benign, ddos, xss, password, scanning, backdoor, injection, dos, mitm, ransomware]
+  balance_target: 120000        # flows per class after re-sampling
+  balance_seed: 42
+
+features:
+  # 13 statistical descriptors.
+  # NOTE: 'NUM_PK TS_128_TO_256_BYTES' is kept VERBATIM from the code that produced
+  # the reported results. The column does not exist, so it is zero-filled.
+  # Set it to 'NUM_PKTS_128_TO_256_BYTES' for the corrected feature (requires re-running).
+  statistical:
+    - IN_BYTES
+    - IN_PKTS
+    - OUT_BYTES
+    - OUT_PKTS
+    - TCP_FLAGS
+    - FLOW_DURATION_MILLISECONDS
+    - SRC_TO_DST_AVG_THROUGHPUT
+    - DST_TO_SRC_AVG_THROUGHPUT
+    - NUM_PKTS_UP_TO_128_BYTES
+    - NUM_PK TS_128_TO_256_BYTES
+    - NUM_PKTS_256_TO_512_BYTES
+    - NUM_PKTS_512_TO_1024_BYTES
+    - NUM_PKTS_1024_TO_1514_BYTES
+  behavioral:                   # 8 inter-arrival-time descriptors
+    - SRC_TO_DST_IAT_MIN
+    - SRC_TO_DST_IAT_MAX
+    - SRC_TO_DST_IAT_AVG
+    - SRC_TO_DST_IAT_STDDEV
+    - DST_TO_SRC_IAT_MIN
+    - DST_TO_SRC_IAT_MAX
+    - DST_TO_SRC_IAT_AVG
+    - DST_TO_SRC_IAT_STDDEV
+  edge: [IN_BYTES, OUT_BYTES, FLOW_DURATION_MILLISECONDS, TCP_FLAGS]
+
+graph:
+  window_ms: 5000               # W = 5 s
+  stride_ms: 2500               # S = 2.5 s (50 % overlap)
+  temporal_dim: 8
+  structural_features: true
+  use_edge_types: true
+  edge_decay: 0.1               # λ_e, Eq. 1
+  priority_classes: [ransomware, scanning]   # ordered priority set P, Eq. 4
+
+split:
+  train_ratio: 0.60
+  val_ratio: 0.15               # stream = remaining 0.25
+  seed: 42
+  sort_by: null                 # null = as reported; "window_id" = re-sort each subset in time
+
+model:
+  hidden_dim: 192
+  memory_dim: 96
+  num_layers: 3
+  num_heads: 4
+  dropout: 0.25
+  sagpool_ratio: 0.6
+
+memory:
+  decay: 0.98                   # γ, Eq. 6
+  alpha: 0.7                    # α, Eq. 7
+
+loss:
+  lambda_bin: 1.0
+  lambda_multi: 0.7
+  lambda_node: 0.2
+  focal_gamma: 2.0
+  label_smoothing: 0.05
+  ens_beta: 0.9999
+  ens_beta_binary: 0.999
+  ens_cap_ratio: 30.0
+  ens_source: flow_counts       # pre-balancing flow counts (Table 2)
+  original_flow_counts:
+    benign: 3358444
+    ddos: 828252
+    xss: 566887
+    password: 318956
+    scanning: 271795
+    backdoor: 203384
+    injection: 76356
+    dos: 40692
+    mitm: 6013
+    ransomware: 3971
+
+training:
+  epochs: 150
+  batch_size: 32
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  min_lr: 1.0e-5
+  scheduler_patience: 10
+  early_stopping_patience: 20
+  early_stopping_min_delta: 5.0e-4
+  grad_clip: 1.0
+  seeds: [13, 42, 123, 777, 2026]
+
+continual:
+  update_interval: 32           # K
+  lambda_ewc: 150
+  ewc_n_graphs: 2000
+  ewc_batch_size: 16
+  warmup_batch_size: 16
+  replay:
+    mode: fifo                  # fifo = as reported (deque, cap 5000); class_specific = k_min reservoirs
+    fifo_capacity: 5000
+    min_per_class: 10           # used when mode = class_specific
+    extra_capacity: 2000        # used when mode = class_specific
+    batch_size: 64
+  alert_threshold: 0.85         # τ_conf (alert gating only; metrics use arg max)
+
+evaluation:
+  tracked_classes: [mitm, ransomware, scanning]
+  thresholds: [0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95]
+  rolling_window: 500

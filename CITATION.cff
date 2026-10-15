@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "TGN-JointIDS"
+type: software
+version: 1.0.0
+license: MIT
+authors:
+  - family-names: "Ben Atitallah"
+    given-names: "Safa"
+  # TODO: add co-authors in paper order
+preferred-citation:
+  type: article
+  title: "Long-Tail-Aware Streaming Intrusion Detection in Internet of Things Networks via Temporal Graph Memory and Multi-Task Learning"
+  authors:
+    - family-names: "Ben Atitallah"
+      given-names: "Safa"
+    # TODO: add co-authors in paper order
+  journal: "TODO"
+  year: 2026
