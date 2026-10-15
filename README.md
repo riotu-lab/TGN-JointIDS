@@ -143,8 +143,12 @@ The NF-CICIDS2018-v3 single-run validation report (Table 12) used lr = 5e-4 and 
 @article{tgnjointids2026,
   title   = {Long-Tail-Aware Streaming Intrusion Detection in Internet of Things Networks
              via Temporal Graph Memory and Multi-Task Learning},
-  author  = {Ben Atitallah, Safa and others},
-  journal = {TODO},
+  author  = {Driss, Maha and
+             Ben Atitallah, Safa and
+             Saidam, Wahaj and
+             Alnasi, Lina and
+             Boulila, Wadii},
+  journal = {XX},
   year    = {2026}
 }
 ```
