@@ -79,7 +79,7 @@ loss:
   ens_beta: 0.9999
   ens_beta_binary: 0.999
   ens_cap_ratio: 30.0
-  ens_source: flow_counts       # pre-balancing flow counts (Table 2)
+  ens_source: flow_counts       
   original_flow_counts:
     benign: 3358444
     ddos: 828252
