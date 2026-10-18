@@ -96,7 +96,7 @@ loss:
   ens_beta: 0.9999
   ens_beta_binary: 0.999
   ens_cap_ratio: 30.0
-  ens_source: train_graphs      # graph-level label counts on the training split
+  ens_source: flow_counts  # train_graphs  # graph-level label counts on the training split
 
 training:
   epochs: 150
