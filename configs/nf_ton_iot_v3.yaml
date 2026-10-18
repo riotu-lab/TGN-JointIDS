@@ -18,9 +18,6 @@ data:
 
 features:
   # 13 statistical descriptors.
-  # NOTE: 'NUM_PK TS_128_TO_256_BYTES' is kept VERBATIM from the code that produced
-  # the reported results. The column does not exist, so it is zero-filled.
-  # Set it to 'NUM_PKTS_128_TO_256_BYTES' for the corrected feature (requires re-running).
   statistical:
     - IN_BYTES
     - IN_PKTS
@@ -31,7 +28,7 @@ features:
     - SRC_TO_DST_AVG_THROUGHPUT
     - DST_TO_SRC_AVG_THROUGHPUT
     - NUM_PKTS_UP_TO_128_BYTES
-    - NUM_PK TS_128_TO_256_BYTES
+    - NUM_PKTS_128_TO_256_BYTES
     - NUM_PKTS_256_TO_512_BYTES
     - NUM_PKTS_512_TO_1024_BYTES
     - NUM_PKTS_1024_TO_1514_BYTES
