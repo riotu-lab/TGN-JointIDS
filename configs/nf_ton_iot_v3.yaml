@@ -114,10 +114,10 @@ continual:
   ewc_batch_size: 16
   warmup_batch_size: 16
   replay:
-    mode: fifo                  # fifo = as reported (deque, cap 5000); class_specific = k_min reservoirs
+    mode: class_specific                 
     fifo_capacity: 5000
-    min_per_class: 10           # used when mode = class_specific
-    extra_capacity: 2000        # used when mode = class_specific
+    min_per_class: 10           
+    extra_capacity: 2000      
     batch_size: 64
   alert_threshold: 0.85         # τ_conf (alert gating only; metrics use arg max)
 
