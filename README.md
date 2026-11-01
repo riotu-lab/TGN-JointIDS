@@ -161,12 +161,16 @@ assignment, and the NF-CICIDS2018-v3 graph building and leakage checks.
 ## Citation
 
 ```bibtex
-@unpublished{tgnjointids2026,
-  title  = {TGN-JointIDS: Temporal Host Memory for Real-Time Graph-Based Intrusion Detection
-            under Class Imbalance},
-  author = {Driss, Maha and Ben Atitallah, Safa and Saidam, Wahaj and Alnasi, Lina and
-            Boulila, Wadii},
-  year   = {2026}
+@article{tgnjointids2026,
+  title   = {Long-Tail-Aware Streaming Intrusion Detection in Internet of Things Networks
+             via Temporal Graph Memory and Multi-Task Learning},
+  author  = {Driss, Maha and
+             Ben Atitallah, Safa and
+             Saidam, Wahaj and
+             Alnasi, Lina and
+             Boulila, Wadii},
+  journal = {XX},
+  year    = {2026}
 }
 ```
 
