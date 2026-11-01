@@ -1,0 +1,38 @@
+{
+ "uuid": "4ac221b1-6bd6-42b1-bdf7-03f4fc7efb22",
+ "name": "NF-CICIDS2018-v3",
+ "status": "PUBLISHED",
+ "accessType": "OPEN",
+ "createdAt": "2025-02-28T06:05:43.177Z",
+ "updatedAt": "2025-03-05T06:02:04.817Z",
+ "espacePid": "UQ:ece9b83",
+ "packagingUuid": "f78acbaa2afe1595",
+ "description": "This dataset is an enhanced version of NetFlow-based datasets, incorporating 53 extracted features that provide detailed insights into network flows. The dataset includes binary and multi-class labels, distinguishing between normal traffic and six different types of attacks. It is structured in CSV format, with each row representing a single network flow, labeled accordingly. One of the key aspects of this dataset is the inclusion of temporal features, which allow for a more detailed analysis of traffic over time. The dataset records precise timestamps for each flow, including start and end times, enabling a more structured understanding of flow duration and activity patterns. Additionally, it captures inter-packet arrival time (IPAT) statistics, including minimum, maximum, average, and standard deviation values for both source-to-destination and destination-to-source packet transmissions.",
+ "licence": "Permitted Re-Use with Commercial Use Restriction",
+ "licence_terms": "http://guides.library.uq.edu.au/deposit_your_data/terms_and_conditions",
+ "owner": "Mr Majed Luay",
+ "project": "ML-based NIDS Datasets - 2",
+ "landing_page": "https://rdm.uq.edu.au/files/4ac221b1-6bd6-42b1-bdf7-03f4fc7efb22",
+ "download": "anonymous public download via https://api.rdm.uq.edu.au/datasets/<uuid>/download (presigned S3 URL)",
+ "package": {
+  "name": "f78acbaa2afe1595_NFV3DATA-A11964_A11964.zip",
+  "bytes": 780113687,
+  "s3_etag": "efa3df193f7928b549515650171919ed-149",
+  "last_modified": "Fri, 28 Feb 2025 06:33:06 GMT",
+  "local_sha256": "7399bdef73d29875ab388a53e2ae7e592d1952c4ef07ae6de195ba133823d97f"
+ },
+ "downloaded_on": "2026-10-21",
+ "local_path": "data/raw/nf_cicids2018_v3_official/NF-CICIDS2018-v3_UQRDM.zip",
+ "csv": {
+  "path": "data/raw/nf_cicids2018_v3_official/f78acbaa2afe1595_NFV3DATA-A11964_A11964/data/NF-CICIDS2018-v3.csv",
+  "bytes": 4222783755,
+  "sha1": "ddcad6d826b73a128a447a0189137efd6c8f70c9",
+  "bagit_manifest_check": "OK"
+ },
+ "feature_dictionary": {
+  "path": "data/raw/nf_cicids2018_v3_official/f78acbaa2afe1595_NFV3DATA-A11964_A11964/data/NetFlow_v3_Features.csv",
+  "sha1": "d028597391217f78df3db31c1dbd96805203196f",
+  "bagit_manifest_check": "OK"
+ },
+ "metadata_record": "https://espace.library.uq.edu.au/view/UQ:ece9b83"
+}

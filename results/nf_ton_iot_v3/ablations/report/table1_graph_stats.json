@@ -1,0 +1,32 @@
+{
+ "window_s": 5,
+ "stride_s": 2.5,
+ "block_s": 60,
+ "graphs": 131062,
+ "unique_ips": 7440,
+ "capture_hours": 144.6,
+ "blocks": {
+  "train": 3290,
+  "val": 1022,
+  "stream": 1322
+ },
+ "flows_per_partition": {
+  "train": 3404850,
+  "val": 851212,
+  "stream": 1418688
+ },
+ "nodes_per_graph": {
+  "mean": 8.027620515481223,
+  "median": 7.0,
+  "p95": 13.0,
+  "max": 245
+ },
+ "edges_per_graph": {
+  "mean": 84.61841723764326,
+  "median": 18.0,
+  "p95": 294.0,
+  "max": 14335
+ },
+ "node_feature_dim": 35,
+ "edge_feature_dim": 5
+}

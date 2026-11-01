@@ -1,0 +1,45 @@
+{
+ "model": "random_forest",
+ "seed": 123,
+ "feats": "data/processed/baselines/nf_cicids2018_v3_final_p2_winfeat.npz",
+ "selected": {
+  "max_depth": 24,
+  "min_samples_leaf": 3
+ },
+ "best_val_macro_f1": 0.75813953313111,
+ "grid": [
+  {
+   "max_depth": null,
+   "min_samples_leaf": 1,
+   "val_macro_f1": 0.7067642267519916,
+   "fit_seconds": 19.142481388000306
+  },
+  {
+   "max_depth": null,
+   "min_samples_leaf": 3,
+   "val_macro_f1": 0.7527312681942909,
+   "fit_seconds": 18.403677688038442
+  },
+  {
+   "max_depth": 24,
+   "min_samples_leaf": 1,
+   "val_macro_f1": 0.7344225353829869,
+   "fit_seconds": 18.352889567031525
+  },
+  {
+   "max_depth": 24,
+   "min_samples_leaf": 3,
+   "val_macro_f1": 0.75813953313111,
+   "fit_seconds": 18.140120183001272
+  }
+ ],
+ "train_seconds_total": 74.13698030798696,
+ "latency": {
+  "windows": 1980,
+  "mean_ms": 28.340474152384854,
+  "median_ms": 31.8534389953129,
+  "p95_ms": 34.184652409749106,
+  "p99_ms": 43.04912279476412,
+  "note": "model inference only, one window per call; feature summary not included"
+ }
+}

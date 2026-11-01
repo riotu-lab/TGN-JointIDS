@@ -1,0 +1,59 @@
+\begin{table}
+\caption{Per rare class F1 and recall for every model (test, five seeds).}
+\label{tab:table_rare_per_class}
+\begin{tabular}{lllrrll}
+\toprule
+ &  &  & train windows & train share \% & F1 & recall \\
+dataset & class & model &  &  &  &  \\
+\midrule
+\multirow[t]{6}{*}{NF-ToN-IoT-v3} & MITM & TGN-JointIDS & 569 & 0.750000 & 0.745 ± 0.026 & 0.835 ± 0.019 \\
+\cline{2-7}
+ & Ransomware & TGN-JointIDS & 481 & 0.630000 & 0.868 ± 0.009 & 0.944 ± 0.013 \\
+\cline{2-7}
+ & MITM & w/o ENS & 569 & 0.750000 & 0.797 ± 0.020 & 0.810 ± 0.021 \\
+\cline{2-7}
+ & Ransomware & w/o ENS & 481 & 0.630000 & 0.884 ± 0.018 & 0.898 ± 0.039 \\
+\cline{2-7}
+ & MITM & Graph-only & 569 & 0.750000 & 0.615 ± 0.058 & 0.842 ± 0.038 \\
+\cline{2-7}
+ & Ransomware & Graph-only & 481 & 0.630000 & 0.804 ± 0.011 & 0.908 ± 0.028 \\
+\cline{1-7} \cline{2-7}
+\multirow[t]{18}{*}{NF-CICIDS2018-v3} & DoS-GoldenEye & TGN-JointIDS & 155 & 0.190000 & 0.983 ± 0.004 & 0.981 ± 0.004 \\
+\cline{2-7}
+ & DoS-Slowloris & TGN-JointIDS & 635 & 0.780000 & 0.998 ± 0.002 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & DoS-Hulk & TGN-JointIDS & 183 & 0.230000 & 0.996 ± 0.006 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & DDoS-LOIC-UDP & TGN-JointIDS & 295 & 0.360000 & 0.802 ± 0.008 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & XSS & TGN-JointIDS & 224 & 0.280000 & 0.490 ± 0.041 & 0.466 ± 0.085 \\
+\cline{2-7}
+ & SQL-Inj & TGN-JointIDS & 526 & 0.650000 & 0.538 ± 0.023 & 0.764 ± 0.054 \\
+\cline{2-7}
+ & DoS-GoldenEye & w/o ENS & 155 & 0.190000 & 0.977 ± 0.025 & 0.956 ± 0.046 \\
+\cline{2-7}
+ & DoS-Slowloris & w/o ENS & 635 & 0.780000 & 0.993 ± 0.013 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & DoS-Hulk & w/o ENS & 183 & 0.230000 & 0.999 ± 0.003 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & DDoS-LOIC-UDP & w/o ENS & 295 & 0.360000 & 0.843 ± 0.035 & 0.995 ± 0.008 \\
+\cline{2-7}
+ & XSS & w/o ENS & 224 & 0.280000 & 0.260 ± 0.180 & 0.209 ± 0.191 \\
+\cline{2-7}
+ & SQL-Inj & w/o ENS & 526 & 0.650000 & 0.649 ± 0.038 & 0.834 ± 0.124 \\
+\cline{2-7}
+ & DoS-GoldenEye & Graph-only & 155 & 0.190000 & 0.970 ± 0.009 & 0.966 ± 0.014 \\
+\cline{2-7}
+ & DoS-Slowloris & Graph-only & 635 & 0.780000 & 0.993 ± 0.003 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & DoS-Hulk & Graph-only & 183 & 0.230000 & 0.993 ± 0.005 & 1.000 ± 0.000 \\
+\cline{2-7}
+ & DDoS-LOIC-UDP & Graph-only & 295 & 0.360000 & 0.819 ± 0.010 & 0.998 ± 0.004 \\
+\cline{2-7}
+ & XSS & Graph-only & 224 & 0.280000 & 0.365 ± 0.080 & 0.343 ± 0.116 \\
+\cline{2-7}
+ & SQL-Inj & Graph-only & 526 & 0.650000 & 0.488 ± 0.035 & 0.747 ± 0.050 \\
+\cline{1-7} \cline{2-7}
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,9 +1,9 @@
-"""TGN-JointIDS: long-tail-aware streaming IoT intrusion detection via
-temporal graph memory and multi-task learning."""
+"""TGN-JointIDS: temporal host memory for real-time graph-based intrusion detection under
+class imbalance."""
 
 __version__ = "1.0.0"
 
-from .models.memory import TGNNodeMemory
+from .models.lane_memory import LaneMemory
 from .models.tgn_jointids import TGNJointIDS
 
-__all__ = ["TGNNodeMemory", "TGNJointIDS", "__version__"]
+__all__ = ["LaneMemory", "TGNJointIDS", "__version__"]

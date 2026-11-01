@@ -1,0 +1,17 @@
+\begin{table}
+\caption{NF-CICIDS2018-v3: TGN-JointIDS vs baselines (test, mean ± SD of five seeds).}
+\label{tab:baselines_nf_cicids2018_v3}
+\begin{tabular}{llllllll}
+\toprule
+ & multiclass macro-F1 & multiclass accuracy & binary F1 & binary FPR & binary FNR & rare F1 & latency per window (ms) \\
+model &  &  &  &  &  &  &  \\
+\midrule
+Random Forest & 0.7561 ± 0.0016 & 0.8390 ± 0.0028 & 0.7341 ± 0.0071 & 0.1724 ± 0.0274 & 0.1775 ± 0.0269 & 0.7108 ± 0.0038 & 33.10 \\
+XGBoost & 0.8199 ± 0.0041 & 0.9025 ± 0.0014 & 0.8449 ± 0.0015 & 0.0568 ± 0.0045 & 0.1676 ± 0.0077 & 0.7778 ± 0.0080 & 53.56 \\
+Window-GRU & 0.8337 ± 0.0024 & 0.8555 ± 0.0039 & 0.7948 ± 0.0038 & 0.1717 ± 0.0066 & 0.0652 ± 0.0068 & 0.7871 ± 0.0050 & 0.07 \\
+E-GraphSAGE & 0.8399 ± 0.0030 & 0.9007 ± 0.0119 & 0.8516 ± 0.0155 & 0.1004 ± 0.0197 & 0.0781 ± 0.0127 & 0.7502 ± 0.0181 & 0.74 \\
+Graph-only & 0.8591 ± 0.0072 & 0.9488 ± 0.0026 & 0.9279 ± 0.0021 & 0.0113 ± 0.0030 & 0.1108 ± 0.0094 & 0.7714 ± 0.0107 & – \\
+TGN-JointIDS & 0.8866 ± 0.0022 & 0.9572 ± 0.0007 & 0.9396 ± 0.0026 & 0.0103 ± 0.0015 & 0.0918 ± 0.0060 & 0.8012 ± 0.0049 & 2.63 \\
+\bottomrule
+\end{tabular}
+\end{table}

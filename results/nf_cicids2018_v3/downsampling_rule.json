@@ -1,0 +1,15 @@
+{
+ "question": "How was data/raw/NF-ToN-IoT-v3_exp2_common20_rare100.csv derived from the official NF-ToN-IoT-v3 CSV?",
+ "official_file": "/home/safa/Documents/Graph-RAG-Exp/data/NF-ToN-IoT-v3.csv (27,520,260 flows)",
+ "derived_file": "data/raw/NF-ToN-IoT-v3_exp2_common20_rare100.csv (5,674,750 flows)",
+ "per_class_official_derived_ratio": {
+  "benign": [16792214, 3358444, 0.2], "ddos": [4141256, 828252, 0.2], "xss": [2834435, 566887, 0.2],
+  "password": [1594777, 318956, 0.2], "scanning": [1358977, 271795, 0.2], "injection": [381777, 76356, 0.2],
+  "dos": [203456, 40692, 0.2], "backdoor": [203384, 203384, 1.0], "mitm": [6013, 6013, 1.0],
+  "ransomware": [3971, 3971, 1.0]},
+ "derived_rows_found_in_official": 1.0,
+ "time_span_hours": {"official": 144.601, "derived": 144.601},
+ "per_minute_kept_fraction_sd": {"benign": 0.017, "scanning": 0.013, "ddos": 0.006},
+ "inferred_rule": "uniform random 20% of flows (per flow, without replacement) for the seven large classes; backdoor, mitm and ransomware kept whole. The class cut lies at ~200k flows (dos 203,456 sampled, backdoor 203,384 kept); the original script and seed are not available.",
+ "applied_to_cicids": "scripts/prepare_flows.py --frac 0.2 --min-flows 200000 --seed 42"
+}

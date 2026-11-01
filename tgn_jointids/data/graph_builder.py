@@ -57,7 +57,8 @@ class EnhancedGraphBuilder:
                  label_space: LabelSpace, priority_classes: Sequence[str] = (),
                  use_edge_types: bool = True, use_temporal_encoding: bool = True,
                  structural_features: bool = True, temporal_dim: int = 8,
-                 edge_decay_factor: float = 0.1):
+                 edge_decay_factor: float = 0.1, role_mean: str = "legacy_half",
+                 strict_features: bool = False):
         self.node_features = list(node_features)
         self.edge_features = list(edge_features)
         self.labels = label_space
@@ -68,6 +69,15 @@ class EnhancedGraphBuilder:
         self.use_structural = structural_features
         self.temporal_dim = int(temporal_dim)
         self.edge_decay = float(edge_decay_factor)
+        # "legacy_half": (mean_as_src + mean_as_dst) / 2 with an absent role counted as 0
+        #                (as run; a node seen in one role only gets half its mean).
+        # "present_roles": average over the roles in which the node actually appears.
+        if role_mean not in ("legacy_half", "present_roles"):
+            raise ValueError(f"Unknown role_mean: {role_mean}")
+        self.role_mean = role_mean
+        # strict_features=True: a missing feature column or a NaN raises instead of
+        # being zero-filled (legacy behaviour kept as the default).
+        self.strict_features = bool(strict_features)
         self.protocol_to_type = {6: 0, 17: 1}  # TCP=0, UDP=1, other=2
 
     # ------------------------------------------------------------------
@@ -131,9 +141,21 @@ class EnhancedGraphBuilder:
         return 1, attack_counts.idxmax(), attack_mask
 
     # ------------------------------------------------------------------
+    def check_features(self, df: pd.DataFrame) -> None:
+        """Strict mode: every node/edge feature column exists and holds no NaN."""
+        cols = list(dict.fromkeys(self.node_features + self.edge_features))
+        missing = [c for c in cols if c not in df.columns]
+        if missing:
+            raise KeyError(f"Missing feature columns: {missing}")
+        n_nan = df[cols].isna().sum()
+        if int(n_nan.sum()):
+            raise ValueError(f"NaN in feature columns: {n_nan[n_nan > 0].to_dict()}")
+
     def build_graph(self, df_snap: pd.DataFrame, window_id: int = 0) -> Data | None:
         if len(df_snap) == 0:
             return None
+        if self.strict_features:
+            self.check_features(df_snap)
 
         ips = pd.concat([df_snap[SRC_COL], df_snap[DST_COL]]).astype(str).unique()
         node_map = {ip: i for i, ip in enumerate(ips)}
@@ -157,12 +179,17 @@ class EnhancedGraphBuilder:
                 tmp[c] = 0.0  # missing columns are zero-filled
         tmp[self.node_features] = tmp[self.node_features].fillna(0)
         X_stat = np.zeros((n_nodes, len(self.node_features)), dtype=np.float32)
+        n_roles = np.zeros((n_nodes, 1), dtype=np.float32)
         for grp_col in (SRC_COL, DST_COL):
             agg = tmp.groupby(grp_col)[self.node_features].mean()
             for ip in agg.index.astype(str):
                 if ip in node_map:
                     X_stat[node_map[ip]] += agg.loc[ip].values.astype(np.float32)
-        X_stat /= 2.0
+                    n_roles[node_map[ip]] += 1
+        if self.role_mean == "legacy_half":
+            X_stat /= 2.0
+        else:
+            X_stat /= np.maximum(n_roles, 1.0)
 
         parts = [X_stat]
         if self.use_structural:
@@ -192,6 +219,8 @@ class EnhancedGraphBuilder:
 
         dist = np.zeros(self.labels.num_classes, dtype=np.float32)
         for a, cnt in df_snap[LABEL_COL].astype(str).str.lower().value_counts().items():
+            if self.labels.strict:
+                self.labels.to_id(a)  # raises on an unknown label
             if a in self.labels.attack2id:
                 dist[self.labels.attack2id[a]] = cnt / len(df_snap)
 

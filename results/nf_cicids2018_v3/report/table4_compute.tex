@@ -1,0 +1,17 @@
+\begin{table}
+\caption{NF-CICIDS2018-v3 compute: training on one RTX 4090 (4 runs in parallel for seeds 42-2026, 2 for seed 13); latency per 5 s window, causal, one window per pass, idle GPU.}
+\label{tab:table4_compute}
+\begin{tabular}{llllllllll}
+\toprule
+ & parameters & best update & training time (min) & peak GPU memory, training (MB) & latency mean (ms) & latency median (ms) & latency P95 (ms) & latency P99 (ms) & peak GPU memory, inference (MB) \\
+seed &  &  &  &  &  &  &  &  &  \\
+\midrule
+13 & 302709 & 5500 & 188.100000 & 1125.000000 & 2.545000 & 2.478000 & 2.939000 & 3.302000 & 12.000000 \\
+42 & 302709 & 5700 & 249.400000 & 1133.000000 & 2.591000 & 2.534000 & 2.942000 & 3.315000 & 12.000000 \\
+123 & 302709 & 6900 & 249.200000 & 1178.000000 & 2.636000 & 2.551000 & 3.136000 & 3.955000 & 12.000000 \\
+777 & 302709 & 6400 & 250.300000 & 1143.000000 & 2.674000 & 2.600000 & 3.066000 & 3.509000 & 12.000000 \\
+2026 & 302709 & 6500 & 249.000000 & 1158.000000 & 2.682000 & 2.621000 & 3.080000 & 3.475000 & 12.000000 \\
+mean ± sd & 302709.00 ± 0.00 & 6200.00 ± 583.10 & 237.20 ± 27.45 & 1147.40 ± 21.08 & 2.63 ± 0.06 & 2.56 ± 0.06 & 3.03 ± 0.09 & 3.51 ± 0.26 & 12.00 ± 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

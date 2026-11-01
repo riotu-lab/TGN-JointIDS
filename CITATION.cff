@@ -1,34 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the associated paper."
+message: "If you use this code, please cite the paper below."
 title: "TGN-JointIDS"
 type: software
 version: 1.0.0
 license: MIT
-
 authors:
-  - family-names: "Driss"
-    given-names: "Maha"
   - family-names: "Ben Atitallah"
     given-names: "Safa"
-  - family-names: "Saidam"
-    given-names: "Wahaj"
-  - family-names: "Alnasi"
-    given-names: "Lina"
-  - family-names: "Boulila"
-    given-names: "Wadii"
-
+  # TODO: add co-authors in paper order
 preferred-citation:
-  type: unpublished
-  title: "Long-Tail-Aware Streaming Intrusion Detection in Internet of Things Networks via Temporal Graph Memory and Multi-Task Learning"
+  type: article
+  title: "TGN-JointIDS: Temporal Host Memory for Real-Time Graph-Based Intrusion Detection under Class Imbalance"
   authors:
-    - family-names: "Driss"
-      given-names: "Maha"
     - family-names: "Ben Atitallah"
       given-names: "Safa"
-    - family-names: "Saidam"
-      given-names: "Wahaj"
-    - family-names: "Alnasi"
-      given-names: "Lina"
-    - family-names: "Boulila"
-      given-names: "Wadii"
+    # TODO: add co-authors in paper order
+  journal: "TODO"
   year: 2026

@@ -1,0 +1,5 @@
+Copied unchanged from results/final_architecture_selection_seed13/A/trainable/seed_13 (original kept).
+Reuse verified 2026-10-20: identical config (max_updates 7000, eval every 100, cosine 1e-3 -> 1e-5,
+selection on val macro-F1, trainable GRU, ENS + focal, SAGPool), seed 13, data file
+data/processed/nf_ton_iot_v3_feature_fixed.pt, split sha256 c04b67da66dd..., train-only log1p/z-score
+scaler, causal frozen-model evaluation; no source file modified after that run started.

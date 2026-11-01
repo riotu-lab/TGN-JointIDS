@@ -1,0 +1,17 @@
+\begin{table}
+\caption{NF-CICIDS2018-v3 minority classes (fewest training windows): errors, mean ± sd over five seeds.}
+\label{tab:table3_minority}
+\begin{tabular}{lrrlllllllll}
+\toprule
+ & train windows & test windows & recall & precision & F1 & FN & FP & benign → class & class → benign & main confusion & gated recall \\
+class &  &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+DoS-GoldenEye & 155 & 135 & 0.981 ± 0.004 & 0.985 ± 0.009 & 0.983 ± 0.004 & 2.6 ± 0.5 & 2.0 ± 1.2 & 0.8 ± 1.3 & 1.6 ± 0.9 & Benign & 0.981 ± 0.004 \\
+DoS-Hulk & 183 & 71 & 1.000 ± 0.000 & 0.992 ± 0.012 & 0.996 ± 0.006 & 0.0 ± 0.0 & 0.6 ± 0.9 & 0.2 ± 0.4 & 0.0 ± 0.0 & — & 1.000 ± 0.000 \\
+XSS & 224 & 94 & 0.466 ± 0.085 & 0.525 ± 0.016 & 0.490 ± 0.041 & 50.2 ± 8.0 & 39.8 ± 9.0 & 0.6 ± 0.9 & 0.8 ± 0.4 & SQL-Inj & 0.466 ± 0.085 \\
+DDoS-LOIC-UDP & 295 & 112 & 1.000 ± 0.000 & 0.670 ± 0.011 & 0.802 ± 0.008 & 0.0 ± 0.0 & 55.2 ± 2.8 & 1.6 ± 0.9 & 0.0 ± 0.0 & — & 1.000 ± 0.000 \\
+SQL-Inj & 526 & 165 & 0.764 ± 0.054 & 0.415 ± 0.014 & 0.538 ± 0.023 & 39.0 ± 8.9 & 177.4 ± 9.8 & 43.8 ± 7.0 & 1.0 ± 0.0 & XSS & 0.730 ± 0.048 \\
+DoS-Slowloris & 635 & 240 & 1.000 ± 0.000 & 0.997 ± 0.003 & 0.998 ± 0.002 & 0.0 ± 0.0 & 0.8 ± 0.8 & 0.6 ± 0.9 & 0.0 ± 0.0 & — & 1.000 ± 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,54 @@
+{
+ "model": "xgboost",
+ "seed": 2026,
+ "feats": "data/processed/baselines/nf_ton_iot_v3_m1_tbptt_winfeat.npz",
+ "selected": {
+  "max_depth": 6,
+  "learning_rate": 0.1,
+  "min_child_weight": 5
+ },
+ "best_val_macro_f1": 0.9103580991741369,
+ "grid": [
+  {
+   "max_depth": 6,
+   "learning_rate": 0.1,
+   "min_child_weight": 1,
+   "val_macro_f1": 0.9094817538935054,
+   "fit_seconds": 10.078393567993771,
+   "best_iteration": 189
+  },
+  {
+   "max_depth": 6,
+   "learning_rate": 0.1,
+   "min_child_weight": 5,
+   "val_macro_f1": 0.9103580991741369,
+   "fit_seconds": 13.461001105955802,
+   "best_iteration": 218
+  },
+  {
+   "max_depth": 10,
+   "learning_rate": 0.1,
+   "min_child_weight": 1,
+   "val_macro_f1": 0.9075195110266485,
+   "fit_seconds": 14.02964714501286,
+   "best_iteration": 103
+  },
+  {
+   "max_depth": 10,
+   "learning_rate": 0.1,
+   "min_child_weight": 5,
+   "val_macro_f1": 0.9072806351499805,
+   "fit_seconds": 13.282269242045004,
+   "best_iteration": 123
+  }
+ ],
+ "train_seconds_total": 50.86387670098338,
+ "latency": {
+  "windows": 1980,
+  "mean_ms": 15.588164250037135,
+  "median_ms": 15.176105516729876,
+  "p95_ms": 20.241407022695057,
+  "p99_ms": 26.14209137100261,
+  "note": "model inference only, one window per call; feature summary not included"
+ }
+}

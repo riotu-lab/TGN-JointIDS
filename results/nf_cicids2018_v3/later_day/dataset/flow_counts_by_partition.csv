@@ -1,0 +1,16 @@
+Attack,train,val,stream
+benign,2215630,554381,732914
+bot,0,0,41541
+brute_force_-web,1293,325,0
+brute_force_-xss,382,98,0
+ddos_attack-hoic,166576,39886,0
+ddos_attack-loic-udp,2844,606,0
+ddos_attacks-loic-http,45451,12267,0
+dos_attacks-goldeneye,48082,13218,0
+dos_attacks-hulk,80177,19899,0
+dos_attacks-slowhttptest,83680,21870,0
+dos_attacks-slowloris,29078,6962,0
+ftp-bruteforce,62195,15149,0
+infilteration,67207,17120,103825
+sql_injection,357,83,0
+ssh-bruteforce,151680,36794,0
