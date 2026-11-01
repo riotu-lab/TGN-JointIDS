@@ -1,0 +1,16 @@
+row_0,train,val,test
+benign,71932,16792,14553
+bot,0,0,8084
+brute_force_-web,2426,0,0
+brute_force_-xss,494,0,0
+ddos_attack-hoic,1264,0,0
+ddos_attack-loic-udp,495,0,0
+ddos_attacks-loic-http,1666,0,0
+dos_attacks-goldeneye,331,0,0
+dos_attacks-hulk,278,0,0
+dos_attacks-slowhttptest,1274,0,0
+dos_attacks-slowloris,995,0,0
+ftp-bruteforce,2332,0,0
+infilteration,0,4699,13140
+sql_injection,248,0,0
+ssh-bruteforce,2180,0,0

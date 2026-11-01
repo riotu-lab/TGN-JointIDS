@@ -1,154 +1,167 @@
 # TGN-JointIDS
 
-**Long-Tail-Aware Streaming Intrusion Detection in IoT Networks via Temporal Graph Memory and Multi-Task Learning**
+**TGN-JointIDS: Temporal Host Memory for Real-Time Graph-Based Intrusion Detection under Class Imbalance**
 
-Official PyTorch / PyTorch Geometric implementation.
+Official PyTorch / PyTorch Geometric implementation, with the configurations, scripts and result
+tables used in the paper.
 
-TGN-JointIDS detects intrusions on a single-pass, chronologically ordered stream of IoT NetFlow
-records. Every 5 s window becomes a communication graph (nodes = IPv4 hosts, edges = flows); a
-persistent IP-keyed TGN memory carries each host's behavioural state across windows; a shared
-edge-aware GAT + SAGPool encoder feeds three heads (binary alert, attack type, per-host
-participation); and a long-tail-aware objective plus EWC-regularised replay keeps rare classes
-alive throughout continual adaptation.
+TGN-JointIDS classifies network traffic window by window. Every 5 s window of NetFlow records
+(2.5 s stride) becomes a host graph: nodes are IPv4 hosts (35-d features), edges are flows (5-d
+features). A GRU memory keyed by host IP carries each host's recent behaviour across the windows of
+a 60 s block; an edge-aware graph-attention encoder with SAGPool readout feeds three heads (attack
+vs benign, attack type, per-host participation); an ENS-weighted focal loss handles the long tail of
+rare attack classes. Every window is predicted before its own memory update (causal inference).
 
 ```
-flows ─► sliding-window graphs ─► memory read (Eq. 6) ─► [x‖m̃] MLP ─► 3×GAT ─► SAGPool ─┬─► binary head
-          W=5 s, S=2.5 s           IPv4 integer key                                     ├─► attack-type head
-                                                                                        └─► node head
-          prequential: predict ─► memory write-back (GRU, Eq. 7) ─► label revealed ─► replay ─► update every K=32 (EWC)
+flows ─► 5 s window graphs ─► memory read (per IP) ─► [x ‖ m] MLP ─► 3 × edge-aware GAT ─► SAGPool ─┬─► binary head
+                                     ▲                                                              ├─► attack-type head
+                                     └──── GRU memory write (reset every 60 s block) ◄──────────────┴─► node head
 ```
 
-## Key results (NF-ToN-IoT-v3, 29,453 streaming windows)
+## Main results
 
-| Metric | Single run (seed 2026) | 5 seeds (mean ± std) |
-|---|---|---|
-| Binary accuracy | 97.46 % | 97.59 ± 0.26 % |
-| False-negative rate | 1.61 % | 1.57 ± 0.25 % |
-| Attack-type weighted F1 | 0.9743 | 0.9610 ± 0.0231 |
-| MITM / Ransomware recall | 0.9216 / 0.8672 | 0.9443 / 0.9303 |
-| Mean / P95 latency (Quadro RTX 8000) | 1.95 / 2.25 ms | — |
+Test partition, mean of five seeds (13, 42, 123, 777, 2026); 60 s block-stratified split
+(whole 60 s blocks go to train / validation / test, 60/15/25, every class in every partition).
 
-External validation on NF-CICIDS2018-v3 (5 seeds): binary accuracy 91.74 ± 0.49 %, multiclass
-weighted F1 85.46 ± 3.06 %.
+| Metric | NF-ToN-IoT-v3 (10 classes) | NF-CICIDS2018-v3 (15 classes) |
+| --- | --- | --- |
+| Macro-F1 | 0.923 ± 0.004 | 0.887 ± 0.002 |
+| Accuracy | 0.966 | 0.957 |
+| Binary F1 | 0.983 | 0.940 |
+| Benign false-positive rate | 0.071 | 0.010 |
+| Latency per window (RTX 4090) | 2.1 ms | 2.6 ms |
+| Parameters | 302,224 | 302,709 |
+
+Ablations (macro-F1): removing the temporal memory (Graph-only) costs 0.022 (ToN) and 0.028
+(CICIDS), significant on both datasets (paired time-cluster bootstrap). External baselines on the
+same windows and splits:
+
+| Model | ToN macro-F1 | CICIDS macro-F1 |
+| --- | --- | --- |
+| Random Forest | 0.888 | 0.756 |
+| XGBoost | 0.908 | 0.820 |
+| Window-GRU (temporal, no graph) | 0.905 | 0.834 |
+| E-GraphSAGE (static graph) | 0.903 | 0.840 |
+| **TGN-JointIDS** | **0.923** | **0.887** |
+
+Test blocks share attack sessions with training blocks, so these numbers measure recognition of
+known attack campaigns. A later-day test on NF-CICIDS2018-v3 (train 14–28 Feb, test 1–2 Mar) is in
+`results/nf_cicids2018_v3/later_day/`. All result tables, statistics and figures are indexed in
+[results/README.md](results/README.md).
 
 ## Repository structure
 
 ```
-TGN-JointIDS/
-├── configs/
-│   ├── nf_ton_iot_v3.yaml          # all hyper-parameters of Table 3
-│   └── nf_cicids2018_v3.yaml
-├── tgn_jointids/
-│   ├── data/
-│   │   ├── preprocessing.py        # loading, chronological sort, class re-sampling
-│   │   ├── features.py             # label space, IPv4 → integer key (Eq. 5)
-│   │   ├── graph_builder.py        # windowing, node/edge features, priority labels (Eqs. 1–4)
-│   │   └── split.py                # stratified 60/15/25 split
-│   ├── models/
-│   │   ├── memory.py               # persistent TGN node memory (Eqs. 6–7)
-│   │   └── tgn_jointids.py         # GAT + SAGPool encoder, three heads (Eqs. 8–13)
-│   ├── losses.py                   # ENS weights, focal loss, joint objective (Eqs. 14–16)
-│   ├── continual.py                # EWC (Eq. 17), replay buffers
-│   ├── trainer.py                  # offline training, warm-up, incremental updates
-│   ├── streaming.py                # prequential test-then-train loop (Algorithm 1)
-│   ├── metrics.py                  # binary, attack-only, OvR, threshold, latency metrics
-│   └── pipeline.py                 # component factories used by the scripts
-├── scripts/
-│   ├── build_graphs.py             # flows → graphs + fixed split
-│   ├── train.py                    # offline training (one seed)
-│   ├── stream_eval.py              # warm-up + EWC + streaming evaluation
-│   ├── run_seeds.py                # five-seed study
-│   ├── identifier_ablation.py      # stable vs permuted vs non-persistent IDs
-│   ├── threshold_analysis.py       # PR curve, threshold sweep
-│   ├── window_suppression.py       # window composition / suppression analysis
-│   └── make_figures.py             # confusion matrices, rolling accuracy, confidence
-├── notebooks/                      # original research notebooks (outputs cleared)
-├── data/README.md                  # where to get the datasets
-└── results/                        # created at run time
+configs/
+  nf_ton_iot_v3.yaml                 NF-ToN-IoT-v3, block-stratified split
+  nf_cicids2018_v3.yaml              NF-CICIDS2018-v3, block-stratified split
+  nf_cicids2018_v3_later_day.yaml    NF-CICIDS2018-v3, later-day (forward-in-time) test
+tgn_jointids/
+  data/features.py                   label space, IPv4 -> integer key
+  data/graph_builder.py              windowing, node / edge features, window labels
+  data/normalization.py              signed log1p + z-score, fitted on training windows only
+  data/preprocessing.py              flow loading
+  models/tgn_jointids.py             encoder (GAT + SAGPool) and the three heads
+  models/lane_memory.py              per-lane IP-keyed GRU memory
+  lanes.py                           chronological lanes of 60 s blocks
+  tbptt.py                           training with truncated BPTT, causal evaluation
+  trainer.py                         optimiser, joint loss, checkpoint bookkeeping
+  losses.py                          ENS class weights, focal loss, joint objective
+  pipeline.py                        factories used by the scripts
+  stats.py                           time-cluster bootstrap
+scripts/                             data preparation, training, baselines, analysis (below)
+tests/                               unit tests (python -m pytest tests -q)
+results/                             result tables, statistics and figures (see results/README.md)
+data/                                datasets (not distributed, see data/README.md)
 ```
 
 ## Installation
 
 ```bash
-git clone https://github.com/<user>/TGN-JointIDS.git
-cd TGN-JointIDS
 conda env create -f environment.yml && conda activate tgn-jointids
-# or: pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121 && pip install -r requirements.txt
 pip install -e .
 ```
 
-Tested with Python 3.10–3.12, PyTorch 2.5.1 (CUDA 12.1) and PyTorch Geometric 2.x.
-
-## Quick start
-
-Place the flow CSV in `data/raw/` (see [`data/README.md`](data/README.md)), then:
-
-```bash
-CFG=configs/nf_ton_iot_v3.yaml
-
-python scripts/build_graphs.py --config $CFG                       # graphs + fixed split
-python scripts/train.py        --config $CFG --seed 2026           # offline training
-python scripts/stream_eval.py  --config $CFG \
-       --checkpoint results/nf_ton_iot_v3/checkpoints/seed_2026.pt  # streaming evaluation
-python scripts/make_figures.py --config $CFG \
-       --stream-results results/nf_ton_iot_v3/seed_2026/stream_results.csv
-```
-
-Any config entry can be overridden from the command line:
-
-```bash
-python scripts/run_seeds.py --config $CFG --set continual.replay.mode=class_specific split.sort_by=window_id
-```
+or, with an existing PyTorch install, `pip install -r requirements.txt && pip install -e .`.
+The paper's runs used Python 3.11, PyTorch 2.3.0 + CUDA 12.1, PyTorch Geometric 2.6.1, one
+RTX 4090 (`results/nf_ton_iot_v3/environment.json`).
 
 ## Reproducing the paper
 
-| Paper item | Command |
-|---|---|
-| Table 4 – window suppression | `scripts/window_suppression.py` |
-| Tables 5–7, Figs. 2, 3, 5, 6 – single run | `scripts/train.py --seed 2026` → `scripts/stream_eval.py` → `scripts/make_figures.py` |
-| Table 8 / Table 11 – five seeds | `scripts/run_seeds.py` (ToN / CICIDS config) |
-| Table 9, Fig. 4 – operating point | `scripts/threshold_analysis.py` |
-| Table 10 – latency | `latency` block of `metrics.json` |
-| Fig. 7 – identifier persistence | `scripts/identifier_ablation.py` |
+All commands run from the repository root. `<s>` is a seed in {13, 42, 123, 777, 2026}.
 
-The modular code is a refactor of the notebooks in `notebooks/`. It was checked against them:
-the model initialises identically under the same seed (state-dict keys and values match, so
-notebook checkpoints load directly), and the graph builder produces bit-identical graphs.
+**1. Data** (see [data/README.md](data/README.md)). Classes with at least 200,000 flows keep a
+random 20% of their flows; smaller classes are kept whole:
 
-Outputs per run (`results/<experiment>/seed_<s>/`): `stream_results.csv` (one row per window,
-including `attack_prob`), `metrics.json`, `attack_type_per_class.csv`,
-`attack_type_confusion.csv`, `classification_report.txt`, `alerts.json`.
+```bash
+python scripts/prepare_flows.py --csv <official NF-CICIDS2018-v3.csv> \
+    --out data/raw/NF-CICIDS2018-v3_common20_rare100.csv --frac 0.2 --min-flows 200000 --seed 42
+python scripts/build_graphs.py        --config configs/nf_ton_iot_v3.yaml
+python scripts/build_graphs_cicids.py --config configs/nf_cicids2018_v3.yaml
+python scripts/build_graphs_cicids.py --config configs/nf_cicids2018_v3_later_day.yaml
+```
 
-Attack-type metrics are reported in two forms: `attack_type_cascade` (benign whenever the binary
-head says benign — the rule of Section 4.4) and `attack_type_raw` (arg max of the attack-type head).
+**2. TGN-JointIDS and its ablations** (7,000 updates each; replace the dataset name for CICIDS):
 
-## Reproducibility notes
+```bash
+D=nf_ton_iot_v3
+python scripts/train.py --config configs/$D.yaml --seed <s>        # -> results/$D/tgn_jointids/seed_<s>
+python scripts/train.py --config configs/$D.yaml --seed <s> --set memory.arm=graph_only     paths.output_dir=results/$D/ablations/graph_only
+python scripts/train.py --config configs/$D.yaml --seed <s> --set memory.arm=frozen_gru     paths.output_dir=results/$D/ablations/frozen_gru
+python scripts/train.py --config configs/$D.yaml --seed <s> --set loss.multi_weighting=none paths.output_dir=results/$D/ablations/w_o_ens
+python scripts/train.py --config configs/$D.yaml --seed <s> --set loss.focal_gamma=0.0      paths.output_dir=results/$D/ablations/w_o_focal
+python scripts/train.py --config configs/nf_cicids2018_v3_later_day.yaml --seed <s>
+python scripts/measure_latency.py --config configs/$D.yaml --out results/$D/latency_idle.json \
+    --runs 13=results/$D/tgn_jointids/seed_13 42=results/$D/tgn_jointids/seed_42 ...
+```
 
-The defaults in `configs/` reproduce the code path that generated the reported numbers. Where that
-code differs from an idealised description, the behaviour is exposed as a config switch:
+**3. External baselines**:
 
-| Setting | Default (as run) | Alternative |
-|---|---|---|
-| `continual.replay.mode` | `fifo` – FIFO buffer, capacity 5000 | `class_specific` – per-class reservoirs, k_min = 10, overflow 2000 |
-| `split.sort_by` | `null` – subsets keep the stratified-split order | `window_id` – each subset re-sorted chronologically |
-| ToN feature `NUM_PK TS_128_TO_256_BYTES` | kept verbatim (column absent → zero-filled) | `NUM_PKTS_128_TO_256_BYTES` |
-| `loss.ens_source` | ToN: `flow_counts`, CICIDS: `train_graphs` | — |
+```bash
+python scripts/baseline_features.py --config configs/$D.yaml          # -> data/processed/baselines/$D_winfeat.npz
+python scripts/train_baseline_tree.py --feats data/processed/baselines/${D}_winfeat.npz \
+    --model xgboost --seed <s> --out results/baselines/$D/xgboost   # also --model random_forest
+python scripts/train_baseline_neural.py --config configs/$D.yaml --set paths.output_dir=results/baselines/$D \
+    --model egraphsage --seeds 13 42 123 777 2026 --out results/baselines/$D/egraphsage
+python scripts/train_baseline_neural.py --config configs/$D.yaml --set paths.output_dir=results/baselines/$D \
+    --model window_gru --feats data/processed/baselines/${D}_winfeat.npz --seeds 13 42 123 777 2026 \
+    --out results/baselines/$D/window_gru
+python scripts/latency_baselines.py --dataset NF-ToN-IoT-v3 --model xgboost   # one process per model
+```
 
-The NF-CICIDS2018-v3 single-run validation report (Table 12) used lr = 5e-4 and dropout = 0.20
-(`--set training.lr=5e-4 model.dropout=0.2`); the five-seed study uses the config defaults.
+**4. Tables, statistics and figures** (in this order):
+
+```bash
+python scripts/analyze_ton.py
+python scripts/analyze_ton_ablations.py
+python scripts/analyze_cicids.py --ablations
+python scripts/analyze_cicids_later_day.py --config configs/nf_cicids2018_v3_later_day.yaml
+python scripts/analyze_ablation_statistics.py
+python scripts/plot_ablation_statistics.py
+python scripts/plot_design_justification.py
+python scripts/analyze_focal.py
+python scripts/analyze_rare_attacks.py
+python scripts/analyze_baselines.py
+python scripts/collect_paper_figures.py
+```
+
+`scripts/audit_netflow_v3.py` is the dataset audit of the official NF-CICIDS2018-v3 file
+(timeline, label coverage, protocol feasibility; `results/nf_cicids2018_v3/dataset_audit/`).
+
+## Tests
+
+```bash
+python -m pytest tests -q
+```
+
+The tests cover the lane memory and TBPTT (gradient flow, causality, resets, reproducibility), the
+fixed update budget, the ablation switches, the losses and ENS weights, train-only scaling, block
+assignment, and the NF-CICIDS2018-v3 graph building and leakage checks.
 
 ## Citation
 
-```bibtex
-@article{tgnjointids2026,
-  title   = {Long-Tail-Aware Streaming Intrusion Detection in Internet of Things Networks
-             via Temporal Graph Memory and Multi-Task Learning},
-  author  = {Ben Atitallah, Safa and others},
-  journal = {TODO},
-  year    = {2026}
-}
-```
+See [CITATION.cff](CITATION.cff).
 
 ## License
 
-MIT — see [LICENSE](LICENSE). The datasets are subject to their own licences.
+MIT, see [LICENSE](LICENSE).

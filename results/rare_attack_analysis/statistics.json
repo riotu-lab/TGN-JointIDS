@@ -1,0 +1,498 @@
+{
+ "NF-ToN-IoT-v3": {
+  "rare_classes": [
+   "mitm",
+   "ransomware"
+  ],
+  "10min TGN-JointIDS - Graph-only rare_f1": {
+   "mean_delta": 0.09648411869858915,
+   "ci95": [
+    0.04323567459812822,
+    0.16145309962652657
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.1086,
+    0.1092,
+    0.1108,
+    0.1347,
+    0.0192
+   ]
+  },
+  "10min TGN-JointIDS - Graph-only rare_recall": {
+   "mean_delta": 0.014302567661346254,
+   "ci95": [
+    -0.0650393230738204,
+    0.08959841347009326
+   ],
+   "seeds_positive": 4,
+   "per_seed": [
+    -0.0128,
+    0.0579,
+    0.0084,
+    0.002,
+    0.0159
+   ]
+  },
+  "10min TGN-JointIDS - Graph-only rare_precision": {
+   "mean_delta": 0.12993078743899977,
+   "ci95": [
+    0.07421282504878945,
+    0.19006369465946168
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.1543,
+    0.1243,
+    0.1601,
+    0.1889,
+    0.0221
+   ]
+  },
+  "10min TGN-JointIDS - Graph-only rare_detection": {
+   "mean_delta": 0.14754098360655732,
+   "ci95": [
+    0.07249898621248987,
+    0.24060271739130423
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.1522,
+    0.1311,
+    0.1593,
+    0.1335,
+    0.1616
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_f1": {
+   "mean_delta": -0.03445109916117974,
+   "ci95": [
+    -0.07614544473894182,
+    -0.008264107171170265
+   ],
+   "seeds_positive": 0,
+   "per_seed": [
+    -0.0402,
+    -0.025,
+    -0.0223,
+    -0.0242,
+    -0.0606
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_recall": {
+   "mean_delta": 0.036009715475364336,
+   "ci95": [
+    -0.0007092721415086233,
+    0.06541548241906371
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.032,
+    0.0456,
+    0.0513,
+    0.0236,
+    0.0276
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_precision": {
+   "mean_delta": -0.09207528032758835,
+   "ci95": [
+    -0.13825572897106247,
+    -0.056822517784180786
+   ],
+   "seeds_positive": 0,
+   "per_seed": [
+    -0.0959,
+    -0.0809,
+    -0.0827,
+    -0.0637,
+    -0.1372
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_detection": {
+   "mean_delta": -0.009836065573770503,
+   "ci95": [
+    -0.03243394655159361,
+    0.00608439736330884
+   ],
+   "seeds_positive": 2,
+   "per_seed": [
+    0.0141,
+    -0.0164,
+    0.007,
+    -0.0375,
+    -0.0164
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_f1": {
+   "mean_delta": 0.09648411869858915,
+   "ci95": [
+    0.026631951165579076,
+    0.1775331118706028
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.1086,
+    0.1092,
+    0.1108,
+    0.1347,
+    0.0192
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_recall": {
+   "mean_delta": 0.014302567661346254,
+   "ci95": [
+    -0.094921803060997,
+    0.09768292682926834
+   ],
+   "seeds_positive": 4,
+   "per_seed": [
+    -0.0128,
+    0.0579,
+    0.0084,
+    0.002,
+    0.0159
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_precision": {
+   "mean_delta": 0.12993078743899977,
+   "ci95": [
+    0.044111332305618936,
+    0.20481330929064745
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.1543,
+    0.1243,
+    0.1601,
+    0.1889,
+    0.0221
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_detection": {
+   "mean_delta": 0.14754098360655732,
+   "ci95": [
+    0.04444444444444444,
+    0.29302521008403365
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.1522,
+    0.1311,
+    0.1593,
+    0.1335,
+    0.1616
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_f1": {
+   "mean_delta": -0.03445109916117974,
+   "ci95": [
+    -0.09521705072973094,
+    -0.003249494084853638
+   ],
+   "seeds_positive": 0,
+   "per_seed": [
+    -0.0402,
+    -0.025,
+    -0.0223,
+    -0.0242,
+    -0.0606
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_recall": {
+   "mean_delta": 0.036009715475364336,
+   "ci95": [
+    0.0020161612929034513,
+    0.07659867179340675
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.032,
+    0.0456,
+    0.0513,
+    0.0236,
+    0.0276
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_precision": {
+   "mean_delta": -0.09207528032758835,
+   "ci95": [
+    -0.16246878373640594,
+    -0.047851149461457215
+   ],
+   "seeds_positive": 0,
+   "per_seed": [
+    -0.0959,
+    -0.0809,
+    -0.0827,
+    -0.0637,
+    -0.1372
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_detection": {
+   "mean_delta": -0.009836065573770503,
+   "ci95": [
+    -0.04169714654546428,
+    0.008000000000000007
+   ],
+   "seeds_positive": 2,
+   "per_seed": [
+    0.0141,
+    -0.0164,
+    0.007,
+    -0.0375,
+    -0.0164
+   ]
+  }
+ },
+ "NF-CICIDS2018-v3": {
+  "rare_classes": [
+   "dos_attacks-goldeneye",
+   "dos_attacks-slowloris",
+   "dos_attacks-hulk",
+   "ddos_attack-loic-udp",
+   "brute_force_-xss",
+   "sql_injection"
+  ],
+  "10min TGN-JointIDS - Graph-only rare_f1": {
+   "mean_delta": 0.02980918681523288,
+   "ci95": [
+    -0.02674603981497635,
+    0.05369019233918111
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0355,
+    0.0403,
+    0.0294,
+    0.0273,
+    0.0165
+   ]
+  },
+  "10min TGN-JointIDS - Graph-only rare_recall": {
+   "mean_delta": 0.026162413564895813,
+   "ci95": [
+    -0.058654158361874514,
+    0.04908679193413468
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0215,
+    0.0526,
+    0.0222,
+    0.0276,
+    0.0069
+   ]
+  },
+  "10min TGN-JointIDS - Graph-only rare_precision": {
+   "mean_delta": 0.02974264677463987,
+   "ci95": [
+    -0.0203225317987939,
+    0.05612481642552846
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0387,
+    0.0244,
+    0.0375,
+    0.0255,
+    0.0226
+   ]
+  },
+  "10min TGN-JointIDS - Graph-only rare_detection": {
+   "mean_delta": 0.0012239902080783294,
+   "ci95": [
+    -0.004498090561920359,
+    0.007807886732866278
+   ],
+   "seeds_positive": 2,
+   "per_seed": [
+    -0.0061,
+    0.0012,
+    0.0,
+    0.011,
+    0.0
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_f1": {
+   "mean_delta": 0.014394262967547467,
+   "ci95": [
+    -0.009104959419388601,
+    0.03745020667316283
+   ],
+   "seeds_positive": 3,
+   "per_seed": [
+    -0.0023,
+    0.0068,
+    -0.0058,
+    0.0513,
+    0.022
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_recall": {
+   "mean_delta": 0.036281017708322615,
+   "ci95": [
+    0.02001345605046425,
+    0.056480774399735756
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0177,
+    0.0423,
+    0.0286,
+    0.0505,
+    0.0423
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_precision": {
+   "mean_delta": -0.028457521284014752,
+   "ci95": [
+    -0.06304300830638615,
+    0.004675944513844249
+   ],
+   "seeds_positive": 1,
+   "per_seed": [
+    -0.0413,
+    -0.0164,
+    -0.0571,
+    0.0056,
+    -0.0331
+   ]
+  },
+  "10min TGN-JointIDS - w/o ENS rare_detection": {
+   "mean_delta": -0.0022031823745410238,
+   "ci95": [
+    -0.00882766027487453,
+    0.0030363040644178253
+   ],
+   "seeds_positive": 1,
+   "per_seed": [
+    -0.0073,
+    0.0024,
+    -0.0012,
+    -0.0024,
+    -0.0024
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_f1": {
+   "mean_delta": 0.02980918681523288,
+   "ci95": [
+    0.013142079786178606,
+    0.06358603832490853
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0355,
+    0.0403,
+    0.0294,
+    0.0273,
+    0.0165
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_recall": {
+   "mean_delta": 0.026162413564895813,
+   "ci95": [
+    0.007718427263283206,
+    0.06709146395435667
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0215,
+    0.0526,
+    0.0222,
+    0.0276,
+    0.0069
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_precision": {
+   "mean_delta": 0.02974264677463987,
+   "ci95": [
+    0.008856122053884774,
+    0.06378350047329465
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0387,
+    0.0244,
+    0.0375,
+    0.0255,
+    0.0226
+   ]
+  },
+  "60min TGN-JointIDS - Graph-only rare_detection": {
+   "mean_delta": 0.0012239902080783294,
+   "ci95": [
+    -0.0024493452476175527,
+    0.006611000508302238
+   ],
+   "seeds_positive": 2,
+   "per_seed": [
+    -0.0061,
+    0.0012,
+    0.0,
+    0.011,
+    0.0
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_f1": {
+   "mean_delta": 0.014394262967547467,
+   "ci95": [
+    -0.023594539526719648,
+    0.0515613355959387
+   ],
+   "seeds_positive": 3,
+   "per_seed": [
+    -0.0023,
+    0.0068,
+    -0.0058,
+    0.0513,
+    0.022
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_recall": {
+   "mean_delta": 0.036281017708322615,
+   "ci95": [
+    0.02420008986789985,
+    0.07371361323662251
+   ],
+   "seeds_positive": 5,
+   "per_seed": [
+    0.0177,
+    0.0423,
+    0.0286,
+    0.0505,
+    0.0423
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_precision": {
+   "mean_delta": -0.028457521284014752,
+   "ci95": [
+    -0.08255738244905324,
+    0.011386001961087393
+   ],
+   "seeds_positive": 1,
+   "per_seed": [
+    -0.0413,
+    -0.0164,
+    -0.0571,
+    0.0056,
+    -0.0331
+   ]
+  },
+  "60min TGN-JointIDS - w/o ENS rare_detection": {
+   "mean_delta": -0.0022031823745410238,
+   "ci95": [
+    -0.009303580391500725,
+    0.0013833101743892468
+   ],
+   "seeds_positive": 1,
+   "per_seed": [
+    -0.0073,
+    0.0024,
+    -0.0012,
+    -0.0024,
+    -0.0024
+   ]
+  }
+ }
+}

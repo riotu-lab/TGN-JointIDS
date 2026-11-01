@@ -1,0 +1,16 @@
+,flows
+benign,17514626
+ddos_attack-hoic,1032311
+ftp-bruteforce,386720
+ddos_attacks-loic-http,288589
+bot,207703
+ssh-bruteforce,188474
+infilteration,188152
+dos_attacks-slowhttptest,105550
+dos_attacks-hulk,100076
+dos_attacks-goldeneye,61300
+dos_attacks-slowloris,36040
+ddos_attack-loic-udp,3450
+brute_force_-web,1618
+brute_force_-xss,480
+sql_injection,440

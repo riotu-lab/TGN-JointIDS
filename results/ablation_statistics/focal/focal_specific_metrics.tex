@@ -1,0 +1,47 @@
+\begin{table}
+\caption{What the focal term changes: TGN-JointIDS (ENS-weighted focal loss) vs ENS-weighted cross-entropy, five paired seeds (test partition unless stated).}
+\label{tab:focal}
+\begin{tabular}{lllrrrllll}
+\toprule
+ &  & windows & TGN-JointIDS & w/o focal & Δ & seeds favourable & 95\% CI (10 min) & 95\% CI (60 min) & verdict \\
+dataset & metric &  &  &  &  &  &  &  &  \\
+\midrule
+\multirow[t]{17}{*}{NF-ToN-IoT-v3} & stealthy attack windows: binary detection & 1130 & 0.675600 & 0.662800 & 0.012700 & 3/5 & [0.0044, 0.0218] & [0.0026, 0.0232] & significant gain \\
+ & stealthy attack windows: attack-type recall & 1130 & 0.825300 & 0.831700 & -0.006400 & 2/5 & [-0.0153, 0.0021] & [-0.0175, 0.0021] & no clear difference \\
+ & low-identity windows: macro-F1 & 7087 & 0.945300 & 0.946600 & -0.001300 & 1/5 & [-0.0057, 0.0031] & [-0.0047, 0.0029] & no clear difference \\
+ & low-identity windows: accuracy & 7087 & 0.982300 & 0.983700 & -0.001400 & 1/5 & [-0.0033, 0.0002] & [-0.0030, -0.0001] & no clear difference \\
+ & confusable classes: recall & 9850 & 0.967600 & 0.969900 & -0.002400 & 1/5 & [-0.0052, -0.0001] & [-0.0061, 0.0002] & no clear difference \\
+ & confusable classes: mean F1 & 9850 & 0.931200 & 0.933000 & -0.001900 & 1/5 & [-0.0046, 0.0001] & [-0.0072, 0.0003] & no clear difference \\
+ & attack-type head: ECE ↓ & 30908 & 0.013400 & 0.020100 & -0.006700 & 5/5 & [-0.0128, -0.0015] & [-0.0147, 0.0016] & consistent gain (5/5 seeds; CI includes 0) \\
+ & attack-type head: Brier ↓ & 30908 & 0.049900 & 0.048200 & 0.001600 & 1/5 & [-0.0012, 0.0044] & [-0.0021, 0.0051] & no clear difference \\
+ & binary head: ECE ↓ & 30908 & 0.018300 & 0.018500 & -0.000200 & 2/5 & [-0.0009, 0.0006] & [-0.0008, 0.0005] & no clear difference \\
+ & binary head: Brier ↓ & 30908 & 0.021400 & 0.021400 & 0.000000 & 2/5 & [-0.0003, 0.0004] & [-0.0004, 0.0004] & no clear difference \\
+ & val macro-F1 at 1,000 updates & val curve & 0.887900 & 0.895000 & -0.007100 & 1/5 & per seed & per seed & worse on ≥ 4/5 seeds \\
+ & val macro-F1 at 2,000 updates & val curve & 0.907200 & 0.907000 & 0.000100 & 4/5 & per seed & per seed & gain on 4/5 seeds \\
+ & val macro-F1 at 3,000 updates & val curve & 0.913900 & 0.913600 & 0.000400 & 3/5 & per seed & per seed & no clear difference \\
+ & updates to 95\% of best val macro-F1 ↓ & val curve & 560.000000 & 520.000000 & 40.000000 & 0/5 & per seed & per seed & worse on ≥ 4/5 seeds \\
+ & updates to 99\% of best val macro-F1 ↓ & val curve & 2280.000000 & 1840.000000 & 440.000000 & 1/5 & per seed & per seed & worse on ≥ 4/5 seeds \\
+ & area under val curve (mean val macro-F1) & val curve & 0.904400 & 0.907300 & -0.002800 & 0/5 & per seed & per seed & worse on ≥ 4/5 seeds \\
+ & seed SD of test macro-F1 ↓ & 30908 & 0.003600 & 0.001500 & 0.002100 & — & — & — & less stable \\
+\cline{1-10}
+\multirow[t]{17}{*}{NF-CICIDS2018-v3} & stealthy attack windows: binary detection & 3661 & 0.805000 & 0.816700 & -0.011600 & 1/5 & [-0.0163, -0.0077] & [-0.0163, -0.0074] & significant loss \\
+ & stealthy attack windows: attack-type recall & 3661 & 0.775100 & 0.790300 & -0.015200 & 0/5 & [-0.0206, -0.0097] & [-0.0241, -0.0064] & significant loss \\
+ & low-identity windows: macro-F1 & 64 & 1.000000 & 1.000000 & 0.000000 & 0/5 & [0.0000, 0.0000] & [0.0000, 0.0000] & no clear difference \\
+ & low-identity windows: accuracy & 64 & 1.000000 & 1.000000 & 0.000000 & 0/5 & [0.0000, 0.0000] & [0.0000, 0.0000] & no clear difference \\
+ & confusable classes: recall & 761 & 0.726900 & 0.735600 & -0.008700 & 2/5 & [-0.0297, 0.0113] & [-0.0413, 0.0178] & no clear difference \\
+ & confusable classes: mean F1 & 761 & 0.593200 & 0.554800 & 0.038400 & 5/5 & [0.0058, 0.0746] & [-0.0242, 0.0732] & consistent gain (5/5 seeds; CI includes 0) \\
+ & attack-type head: ECE ↓ & 33400 & 0.044400 & 0.025400 & 0.018900 & 0/5 & [0.0153, 0.0220] & [0.0118, 0.0247] & significant loss \\
+ & attack-type head: Brier ↓ & 33400 & 0.067400 & 0.062900 & 0.004500 & 0/5 & [0.0031, 0.0058] & [0.0025, 0.0064] & significant loss \\
+ & binary head: ECE ↓ & 33400 & 0.023300 & 0.021700 & 0.001600 & 2/5 & [0.0006, 0.0024] & [0.0005, 0.0023] & significant loss \\
+ & binary head: Brier ↓ & 33400 & 0.025700 & 0.025300 & 0.000500 & 1/5 & [0.0000, 0.0010] & [-0.0001, 0.0012] & no clear difference \\
+ & val macro-F1 at 1,000 updates & val curve & 0.576900 & 0.537000 & 0.039900 & 4/5 & per seed & per seed & gain on 4/5 seeds \\
+ & val macro-F1 at 2,000 updates & val curve & 0.818600 & 0.793800 & 0.024800 & 5/5 & per seed & per seed & gain on 5/5 seeds \\
+ & val macro-F1 at 3,000 updates & val curve & 0.860200 & 0.861300 & -0.001100 & 3/5 & per seed & per seed & no clear difference \\
+ & updates to 95\% of best val macro-F1 ↓ & val curve & 2440.000000 & 2260.000000 & 180.000000 & 0/5 & per seed & per seed & worse on ≥ 4/5 seeds \\
+ & updates to 99\% of best val macro-F1 ↓ & val curve & 4060.000000 & 4000.000000 & 60.000000 & 2/5 & per seed & per seed & no clear difference \\
+ & area under val curve (mean val macro-F1) & val curve & 0.782400 & 0.773200 & 0.009300 & 5/5 & per seed & per seed & gain on 5/5 seeds \\
+ & seed SD of test macro-F1 ↓ & 33400 & 0.002200 & 0.006000 & -0.003800 & — & — & — & more stable \\
+\cline{1-10}
+\bottomrule
+\end{tabular}
+\end{table}

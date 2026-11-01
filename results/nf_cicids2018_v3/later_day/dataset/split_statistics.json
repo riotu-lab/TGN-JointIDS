@@ -1,0 +1,171 @@
+{
+ "bundle": "data/processed/nf_cicids2018_v3_final_p1_c20r100.pt",
+ "protocol": "forward_in_time",
+ "forward_in_time": true,
+ "test_start_utc": "2018-03-01T04:00:00Z",
+ "cut_ms": 1519876800000,
+ "last_train_period_flow_ms": 1519864065942,
+ "first_test_flow_ms": 1519906536794,
+ "idle_gap_minutes": 707.8475333333333,
+ "flows_crossing_cut": 0,
+ "cut_block_aligned": false,
+ "priority_classes": {
+  "sql_injection": 357,
+  "brute_force_-xss": 382,
+  "brute_force_-web": 1293
+ },
+ "priority_order_is_rarest_first_on_train": true,
+ "data": {
+  "rows": 4571570,
+  "labels": {
+   "benign": 3502925,
+   "ddos_attack-hoic": 206462,
+   "ssh-bruteforce": 188474,
+   "infilteration": 188152,
+   "dos_attacks-slowhttptest": 105550,
+   "dos_attacks-hulk": 100076,
+   "ftp-bruteforce": 77344,
+   "dos_attacks-goldeneye": 61300,
+   "ddos_attacks-loic-http": 57718,
+   "bot": 41541,
+   "dos_attacks-slowloris": 36040,
+   "ddos_attack-loic-udp": 3450,
+   "brute_force_-web": 1618,
+   "brute_force_-xss": 480,
+   "sql_injection": 440
+  },
+  "csv_sha256": "049cc8af72d5ab1d83487b14461eac48d6f3b733689773c7801c5f7ef191f232"
+ },
+ "t0_ms": 1518611287705,
+ "block_ms": 60000,
+ "window_id_units": "unix_ms_window_start",
+ "split_sha256": "9fdd1fe3ccb40b158e0a001b9959ab44ef4e3efa404274b6a2c788a16e844954",
+ "graphs_per_partition": {
+  "train": 87778,
+  "val": 22307,
+  "stream": 25010
+ },
+ "graph_label_counts": {
+  "train": {
+   "benign": 69198,
+   "ftp-bruteforce": 1876,
+   "ssh-bruteforce": 1752,
+   "dos_attacks-goldeneye": 264,
+   "dos_attacks-slowloris": 792,
+   "dos_attacks-slowhttptest": 1010,
+   "dos_attacks-hulk": 206,
+   "ddos_attacks-loic-http": 1259,
+   "ddos_attack-loic-udp": 400,
+   "ddos_attack-hoic": 1024,
+   "brute_force_-web": 1587,
+   "brute_force_-xss": 288,
+   "sql_injection": 657,
+   "infilteration": 7465,
+   "bot": 0
+  },
+  "val": {
+   "benign": 17632,
+   "ftp-bruteforce": 456,
+   "ssh-bruteforce": 428,
+   "dos_attacks-goldeneye": 69,
+   "dos_attacks-slowloris": 203,
+   "dos_attacks-slowhttptest": 264,
+   "dos_attacks-hulk": 72,
+   "ddos_attacks-loic-http": 376,
+   "ddos_attack-loic-udp": 93,
+   "ddos_attack-hoic": 240,
+   "brute_force_-web": 404,
+   "brute_force_-xss": 73,
+   "sql_injection": 159,
+   "infilteration": 1838,
+   "bot": 0
+  },
+  "stream": {
+   "benign": 8542,
+   "ftp-bruteforce": 0,
+   "ssh-bruteforce": 0,
+   "dos_attacks-goldeneye": 0,
+   "dos_attacks-slowloris": 0,
+   "dos_attacks-slowhttptest": 0,
+   "dos_attacks-hulk": 0,
+   "ddos_attacks-loic-http": 0,
+   "ddos_attack-loic-udp": 0,
+   "ddos_attack-hoic": 0,
+   "brute_force_-web": 0,
+   "brute_force_-xss": 0,
+   "sql_injection": 0,
+   "infilteration": 8519,
+   "bot": 7949
+  }
+ },
+ "heldout": {
+  "classes_full": [
+   "benign",
+   "ftp-bruteforce",
+   "ssh-bruteforce",
+   "dos_attacks-goldeneye",
+   "dos_attacks-slowloris",
+   "dos_attacks-slowhttptest",
+   "dos_attacks-hulk",
+   "ddos_attacks-loic-http",
+   "ddos_attack-loic-udp",
+   "ddos_attack-hoic",
+   "brute_force_-web",
+   "brute_force_-xss",
+   "sql_injection",
+   "infilteration",
+   "bot"
+  ],
+  "heldout_windows": 7949
+ },
+ "mixed_windows": {
+  "train": {
+   "windows_2plus_attack_classes": 727,
+   "label_changed_by_priority": {
+    "brute_force_-web -> brute_force_-xss": 262,
+    "brute_force_-xss -> sql_injection": 364,
+    "brute_force_-web -> sql_injection": 89
+   }
+  },
+  "val": {
+   "windows_2plus_attack_classes": 180,
+   "label_changed_by_priority": {
+    "brute_force_-web -> brute_force_-xss": 64,
+    "brute_force_-xss -> sql_injection": 97,
+    "brute_force_-web -> sql_injection": 17
+   }
+  },
+  "stream": {
+   "windows_2plus_attack_classes": 0,
+   "label_changed_by_priority": {}
+  }
+ },
+ "leakage_checks": {
+  "flows_per_partition": {
+   "train": 2954632,
+   "val": 738658,
+   "stream": 878280
+  },
+  "blocks_per_partition": {
+   "train": 4154,
+   "val": 1073,
+   "stream": 1097
+  },
+  "exact_duplicate_flows_across_partitions": 0,
+  "exact_duplicate_rows_within_partitions": 233684,
+  "stream_flows_with_feature_identical_train_flow_pct": 52.09750876713577,
+  "max_train_val_flow_end_ms": 1519864099851,
+  "min_test_flow_start_ms": 1519906536794
+ },
+ "identity_overlap": {
+  "val": {
+   "windows_all_ips_seen_in_train_pct": 41.04989465190299,
+   "windows_no_ip_seen_in_train_pct": 0.0
+  },
+  "stream": {
+   "windows_all_ips_seen_in_train_pct": 4.5861655337864855,
+   "windows_no_ip_seen_in_train_pct": 0.0
+  }
+ },
+ "build_seconds": 149.1658661365509
+}

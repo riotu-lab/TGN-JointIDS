@@ -26,8 +26,11 @@ class LabelSpace:
     Index 0 must be the benign class.
     """
 
-    def __init__(self, classes: Sequence[str], benign_label: str = "benign"):
+    def __init__(self, classes: Sequence[str], benign_label: str = "benign",
+                 strict: bool = False):
         self.classes = [c.lower() for c in classes]
+        # strict=True: an unknown label raises instead of silently becoming benign.
+        self.strict = bool(strict)
         self.benign_label = benign_label.lower()
         if self.classes[0] != self.benign_label:
             raise ValueError("The first class must be the benign class.")
@@ -46,5 +49,8 @@ class LabelSpace:
         return [i for i, a in self.id2attack.items() if a != self.benign_label]
 
     def to_id(self, label: str) -> int:
-        """Unknown labels map to benign (as in the original pipeline)."""
-        return self.attack2id.get(str(label).lower(), self.attack2id[self.benign_label])
+        """Unknown labels map to benign (as in the original pipeline) unless strict."""
+        key = str(label).lower()
+        if self.strict and key not in self.attack2id:
+            raise KeyError(f"Unknown attack label {label!r} (strict label space: {self.classes})")
+        return self.attack2id.get(key, self.attack2id[self.benign_label])

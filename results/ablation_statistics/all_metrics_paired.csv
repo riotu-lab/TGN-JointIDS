@@ -1,0 +1,223 @@
+dataset,comparison,group,metric,TGN-JointIDS,ablation,Δ,seeds favourable,95% CI (10 min),95% CI (60 min),verdict
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,multiclass,multiclass accuracy,0.9658,0.9609,0.0049,5/5,"[0.0029, 0.0070]","[0.0024, 0.0078]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,multiclass,multiclass macro-F1,0.9225,0.9009,0.0216,5/5,"[0.0100, 0.0344]","[0.0061, 0.0361]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,multiclass,multiclass weighted F1,0.9666,0.9623,0.0042,5/5,"[0.0023, 0.0062]","[0.0018, 0.0068]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary accuracy,0.9707,0.9672,0.0035,5/5,"[0.0014, 0.0059]","[0.0009, 0.0067]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary precision,0.9867,0.9872,-0.0005,3/5,"[-0.0018, 0.0008]","[-0.0026, 0.0013]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary recall,0.9784,0.9737,0.0047,5/5,"[0.0024, 0.0074]","[0.0015, 0.0090]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary F1,0.9825,0.9804,0.0021,5/5,"[0.0009, 0.0036]","[0.0006, 0.0042]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary FPR,0.0711,0.0679,0.0032,3/5,"[-0.0043, 0.0109]","[-0.0071, 0.0148]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary FNR,0.0216,0.0263,-0.0047,5/5,"[-0.0074, -0.0024]","[-0.0090, -0.0015]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,rare,rare F1,0.8061,0.7096,0.0965,5/5,"[0.0445, 0.1583]","[0.0313, 0.1778]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,rare,rare recall,0.8897,0.8754,0.0143,4/5,"[-0.0679, 0.0882]","[-0.0907, 0.1142]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,rare,rare precision,0.7373,0.6074,0.1299,5/5,"[0.0778, 0.1901]","[0.0466, 0.2050]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,rare,rare detection (binary head),0.8721,0.7246,0.1475,5/5,"[0.0700, 0.2466]","[0.0512, 0.2989]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,DDoS F1,0.9973,0.9953,0.0019,5/5,"[0.0005, 0.0039]","[0.0002, 0.0042]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,DDoS recall,0.9953,0.9927,0.0027,5/5,"[0.0000, 0.0059]","[-0.0005, 0.0066]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,XSS F1,0.998,0.9964,0.0016,5/5,"[-0.0003, 0.0037]","[-0.0006, 0.0052]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,XSS recall,0.9983,0.9964,0.002,5/5,"[-0.0002, 0.0048]","[-0.0009, 0.0058]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Password F1,0.9955,0.9947,0.0008,4/5,"[-0.0009, 0.0037]","[-0.0010, 0.0038]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Password recall,0.9929,0.9912,0.0018,4/5,"[-0.0014, 0.0073]","[-0.0017, 0.0073]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Scanning F1,0.7613,0.7647,-0.0033,1/5,"[-0.0159, 0.0050]","[-0.0182, 0.0075]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Scanning recall,0.8259,0.8415,-0.0156,0/5,"[-0.0456, 0.0055]","[-0.0415, 0.0087]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Backdoor F1,0.9973,0.9973,-0.0,3/5,"[-0.0016, 0.0014]","[-0.0016, 0.0015]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Backdoor recall,0.9966,0.9959,0.0008,4/5,"[-0.0017, 0.0035]","[-0.0017, 0.0040]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Injection F1,0.9697,0.9655,0.0042,4/5,"[-0.0048, 0.0152]","[-0.0045, 0.0271]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Injection recall,0.9778,0.9702,0.0076,5/5,"[-0.0003, 0.0186]","[-0.0003, 0.0282]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,DoS F1,0.9972,0.9934,0.0038,5/5,"[0.0012, 0.0077]","[0.0012, 0.0085]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,DoS recall,0.9978,0.9929,0.0049,5/5,"[0.0003, 0.0118]","[-0.0000, 0.0128]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,MITM F1,0.7447,0.615,0.1297,4/5,"[0.0264, 0.2391]",n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,MITM recall,0.8352,0.8424,-0.0073,2/5,"[-0.1706, 0.1269]",n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Ransomware F1,0.8675,0.8043,0.0632,5/5,"[0.0155, 0.1347]","[0.0014, 0.1900]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,per class,Ransomware recall,0.9443,0.9084,0.0359,5/5,"[-0.0117, 0.0911]","[-0.1091, 0.1592]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs Graph-only,binary,binary average precision,0.9985,0.9985,-0.0,3/5,n/a,n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass accuracy,0.9658,0.9686,-0.0027,0/5,"[-0.0045, -0.0014]","[-0.0049, -0.0010]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass macro-F1,0.9225,0.9309,-0.0084,0/5,"[-0.0171, -0.0028]","[-0.0211, -0.0012]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass weighted F1,0.9666,0.9687,-0.0021,0/5,"[-0.0037, -0.0009]","[-0.0040, -0.0006]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary accuracy,0.9707,0.9704,0.0003,3/5,"[-0.0008, 0.0014]","[-0.0007, 0.0013]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary precision,0.9867,0.9823,0.0044,5/5,"[0.0022, 0.0069]","[0.0010, 0.0093]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary recall,0.9784,0.9826,-0.0042,0/5,"[-0.0068, -0.0019]","[-0.0087, -0.0010]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary F1,0.9825,0.9824,0.0001,3/5,"[-0.0005, 0.0008]","[-0.0004, 0.0006]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary FPR,0.0711,0.0955,-0.0244,5/5,"[-0.0378, -0.0122]","[-0.0525, -0.0060]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary FNR,0.0216,0.0174,0.0042,0/5,"[0.0019, 0.0068]","[0.0010, 0.0087]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,rare,rare F1,0.8061,0.8406,-0.0345,0/5,"[-0.0758, -0.0082]","[-0.0984, -0.0028]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,rare,rare recall,0.8897,0.8537,0.036,5/5,"[-0.0026, 0.0651]","[0.0020, 0.0746]",consistent gain (5/5 seeds; CI includes 0)
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,rare,rare precision,0.7373,0.8294,-0.0921,0/5,"[-0.1361, -0.0565]","[-0.1616, -0.0477]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,rare,rare detection (binary head),0.8721,0.882,-0.0098,2/5,"[-0.0324, 0.0061]","[-0.0395, 0.0080]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,DDoS F1,0.9973,0.9975,-0.0002,1/5,"[-0.0009, 0.0003]","[-0.0010, 0.0004]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,DDoS recall,0.9953,0.996,-0.0007,1/5,"[-0.0019, 0.0002]","[-0.0020, 0.0002]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,XSS F1,0.998,0.9986,-0.0006,0/5,"[-0.0017, 0.0002]","[-0.0023, 0.0002]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,XSS recall,0.9983,0.9986,-0.0002,2/5,"[-0.0006, 0.0000]","[-0.0007, 0.0000]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Password F1,0.9955,0.9972,-0.0016,1/5,"[-0.0051, 0.0002]","[-0.0053, 0.0003]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Password recall,0.9929,0.9965,-0.0036,1/5,"[-0.0106, 0.0000]","[-0.0109, 0.0000]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Scanning F1,0.7613,0.7575,0.0038,3/5,"[-0.0069, 0.0196]","[-0.0024, 0.0295]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Scanning recall,0.8259,0.7722,0.0537,4/5,"[0.0218, 0.0924]","[0.0112, 0.1226]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Backdoor F1,0.9973,0.9975,-0.0002,0/5,"[-0.0008, 0.0002]","[-0.0008, 0.0002]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Backdoor recall,0.9966,0.9975,-0.0009,0/5,"[-0.0018, -0.0002]","[-0.0024, -0.0000]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Injection F1,0.9697,0.9776,-0.0078,0/5,"[-0.0226, -0.0009]","[-0.0452, -0.0002]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Injection recall,0.9778,0.9719,0.0059,4/5,"[0.0009, 0.0121]","[0.0050, 0.0078]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,DoS F1,0.9972,0.9979,-0.0007,1/5,"[-0.0019, 0.0003]","[-0.0022, 0.0005]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,DoS recall,0.9978,0.9989,-0.0012,0/5,"[-0.0032, 0.0002]","[-0.0034, 0.0000]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,MITM F1,0.7447,0.7967,-0.052,0/5,"[-0.1198, -0.0083]",n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,MITM recall,0.8352,0.8097,0.0255,4/5,"[-0.0465, 0.0723]",n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Ransomware F1,0.8675,0.8844,-0.0169,1/5,"[-0.0631, 0.0097]","[-0.0855, 0.0117]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Ransomware recall,0.9443,0.8977,0.0466,5/5,"[0.0248, 0.0782]","[0.0356, 0.1091]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary average precision,0.9985,0.9985,-0.0,2/5,n/a,n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,multiclass,multiclass accuracy,0.9658,0.9667,-0.0009,1/5,"[-0.0018, 0.0000]","[-0.0021, 0.0002]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,multiclass,multiclass macro-F1,0.9225,0.9256,-0.0031,1/5,"[-0.0070, 0.0002]","[-0.0085, -0.0005]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,multiclass,multiclass weighted F1,0.9666,0.9675,-0.0009,1/5,"[-0.0019, 0.0000]","[-0.0022, 0.0001]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary accuracy,0.9707,0.9707,-0.0,2/5,"[-0.0005, 0.0005]","[-0.0005, 0.0004]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary precision,0.9867,0.9876,-0.0009,2/5,"[-0.0014, -0.0004]","[-0.0016, -0.0002]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary recall,0.9784,0.9776,0.0009,3/5,"[0.0003, 0.0015]","[0.0003, 0.0016]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary F1,0.9825,0.9825,0.0,2/5,"[-0.0003, 0.0003]","[-0.0003, 0.0003]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary FPR,0.0711,0.0664,0.0048,2/5,"[0.0023, 0.0074]","[0.0015, 0.0092]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary FNR,0.0216,0.0224,-0.0009,3/5,"[-0.0015, -0.0003]","[-0.0016, -0.0003]",significant gain
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,rare,rare F1,0.8061,0.817,-0.0109,2/5,"[-0.0283, 0.0051]","[-0.0384, 0.0003]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,rare,rare recall,0.8897,0.8828,0.007,2/5,"[-0.0045, 0.0208]","[-0.0096, 0.0170]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,rare,rare precision,0.7373,0.7619,-0.0246,1/5,"[-0.0487, -0.0038]","[-0.0576, -0.0043]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,rare,rare detection (binary head),0.8721,0.8632,0.0089,3/5,"[-0.0052, 0.0278]","[-0.0044, 0.0341]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,DDoS F1,0.9973,0.9972,0.0,2/5,"[-0.0008, 0.0012]","[-0.0008, 0.0012]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,DDoS recall,0.9953,0.9957,-0.0003,2/5,"[-0.0014, 0.0006]","[-0.0012, 0.0001]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,XSS F1,0.998,0.9978,0.0002,1/5,"[-0.0009, 0.0019]","[-0.0012, 0.0023]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,XSS recall,0.9983,0.9973,0.0011,1/5,"[-0.0008, 0.0043]","[-0.0010, 0.0057]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Password F1,0.9955,0.9962,-0.0007,2/5,"[-0.0022, 0.0002]","[-0.0021, 0.0002]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Password recall,0.9929,0.9938,-0.0008,2/5,"[-0.0036, 0.0009]","[-0.0038, 0.0012]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Scanning F1,0.7613,0.7655,-0.0042,2/5,"[-0.0139, 0.0015]","[-0.0185, 0.0029]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Scanning recall,0.8259,0.8405,-0.0146,2/5,"[-0.0314, -0.0035]","[-0.0358, -0.0019]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Backdoor F1,0.9973,0.9977,-0.0004,0/5,"[-0.0012, 0.0001]","[-0.0012, 0.0000]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Backdoor recall,0.9966,0.9968,-0.0001,1/5,"[-0.0004, 0.0001]","[-0.0004, 0.0001]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Injection F1,0.9697,0.9725,-0.0028,3/5,"[-0.0089, 0.0008]","[-0.0164, 0.0015]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Injection recall,0.9778,0.9782,-0.0004,2/5,"[-0.0019, 0.0011]","[-0.0026, 0.0008]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,DoS F1,0.9972,0.9977,-0.0005,2/5,"[-0.0014, 0.0002]","[-0.0016, 0.0004]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,DoS recall,0.9978,0.9986,-0.0008,2/5,"[-0.0023, 0.0001]","[-0.0023, 0.0001]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,MITM F1,0.7447,0.7549,-0.0102,1/5,"[-0.0388, 0.0165]",n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,MITM recall,0.8352,0.8182,0.017,2/5,"[-0.0025, 0.0431]",n/a,no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Ransomware F1,0.8675,0.879,-0.0115,1/5,"[-0.0302, 0.0009]","[-0.0443, -0.0022]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Ransomware recall,0.9443,0.9473,-0.0031,1/5,"[-0.0139, 0.0039]","[-0.0273, 0.0000]",no clear difference
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary average precision,0.9985,0.9982,0.0003,4/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,multiclass,multiclass accuracy,0.9572,0.9488,0.0084,5/5,"[0.0057, 0.0111]","[0.0049, 0.0121]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,multiclass,multiclass macro-F1,0.8866,0.8591,0.0276,5/5,"[0.0016, 0.0369]","[0.0187, 0.0411]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,multiclass,multiclass weighted F1,0.9575,0.9492,0.0083,5/5,"[0.0055, 0.0111]","[0.0042, 0.0125]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary accuracy,0.9659,0.9597,0.0062,5/5,"[0.0038, 0.0088]","[0.0025, 0.0103]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary precision,0.9732,0.9702,0.0031,2/5,"[-0.0011, 0.0082]","[-0.0017, 0.0087]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary recall,0.9082,0.8892,0.0189,4/5,"[0.0114, 0.0269]","[0.0068, 0.0339]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary F1,0.9396,0.9279,0.0117,5/5,"[0.0073, 0.0167]","[0.0046, 0.0209]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary FPR,0.0103,0.0113,-0.001,1/5,"[-0.0029, 0.0007]","[-0.0029, 0.0010]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary FNR,0.0918,0.1108,-0.0189,4/5,"[-0.0269, -0.0114]","[-0.0339, -0.0068]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,rare,rare F1,0.8012,0.7714,0.0298,5/5,"[-0.0308, 0.0545]","[0.0136, 0.0628]",consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,rare,rare recall,0.8684,0.8422,0.0262,5/5,"[-0.0688, 0.0495]","[0.0079, 0.0658]",consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,rare,rare precision,0.764,0.7343,0.0297,5/5,"[-0.0253, 0.0565]","[0.0081, 0.0620]",consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,rare,rare detection (binary head),0.987,0.9858,0.0012,2/5,"[-0.0045, 0.0077]","[-0.0026, 0.0069]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,FTP-BF F1,0.9926,0.99,0.0026,3/5,"[-0.0042, 0.0205]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,FTP-BF recall,0.9894,0.9971,-0.0077,1/5,"[-0.0141, -0.0033]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,SSH-BF F1,0.9995,1.0,-0.0005,0/5,"[-0.0025, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,SSH-BF recall,1.0,1.0,0.0,0/5,"[0.0000, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-GoldenEye F1,0.9829,0.9703,0.0126,4/5,"[-0.4080, 0.0358]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-GoldenEye recall,0.9807,0.9659,0.0148,4/5,"[-0.6000, 0.0453]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-Slowloris F1,0.9983,0.9934,0.005,5/5,"[-0.0032, 0.0344]",n/a,consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-Slowloris recall,1.0,1.0,0.0,0/5,"[0.0000, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-SlowHTTP F1,0.9881,0.9812,0.0069,4/5,"[-0.0215, 0.0144]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-SlowHTTP recall,0.9986,0.9691,0.0296,5/5,"[0.0167, 0.0381]",n/a,consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-Hulk F1,0.9958,0.993,0.0028,3/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DoS-Hulk recall,1.0,1.0,0.0,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DDoS-LOIC-HTTP F1,0.9073,0.915,-0.0077,1/5,"[-0.0368, -0.0018]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DDoS-LOIC-HTTP recall,0.8367,0.8456,-0.0089,2/5,"[-0.0305, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DDoS-LOIC-UDP F1,0.8024,0.8186,-0.0162,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DDoS-LOIC-UDP recall,1.0,0.9982,0.0018,1/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DDoS-HOIC F1,0.9978,0.9982,-0.0004,3/5,"[-0.0081, 0.0027]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,DDoS-HOIC recall,0.9993,0.9964,0.0029,4/5,"[0.0000, 0.0068]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,Web-BF F1,0.7516,0.5287,0.2229,5/5,"[0.1862, 0.2597]","[0.1901, 0.2623]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,Web-BF recall,0.7637,0.5163,0.2474,5/5,"[0.2033, 0.2940]","[0.2081, 0.2957]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,XSS F1,0.4903,0.3648,0.1254,4/5,"[0.0251, 0.2184]","[0.0424, 0.2187]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,XSS recall,0.466,0.3426,0.1234,4/5,"[0.0147, 0.2299]","[0.0333, 0.3035]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,SQL-Inj F1,0.5376,0.4883,0.0492,3/5,"[0.0056, 0.0921]","[0.0051, 0.0957]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,SQL-Inj recall,0.7636,0.7467,0.017,3/5,"[-0.0368, 0.0808]","[-0.0653, 0.0788]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,Infiltration F1,0.882,0.8758,0.0062,5/5,"[-0.0002, 0.0136]","[-0.0001, 0.0157]",consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,Infiltration recall,0.8334,0.831,0.0024,4/5,"[-0.0074, 0.0124]","[-0.0069, 0.0134]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,Bot F1,0.9978,0.9982,-0.0004,1/5,"[-0.0018, 0.0009]","[-0.0017, 0.0004]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,per class,Bot recall,0.9991,0.9993,-0.0002,3/5,"[-0.0012, 0.0011]","[-0.0006, 0.0003]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs Graph-only,binary,binary average precision,0.987,0.9804,0.0066,5/5,n/a,n/a,consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass accuracy,0.9572,0.9586,-0.0014,1/5,"[-0.0029, 0.0001]","[-0.0036, 0.0006]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass macro-F1,0.8866,0.8842,0.0024,3/5,"[-0.0105, 0.0112]","[-0.0260, 0.0148]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass weighted F1,0.9575,0.9572,0.0002,1/5,"[-0.0013, 0.0017]","[-0.0021, 0.0027]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary accuracy,0.9659,0.9645,0.0015,3/5,"[0.0003, 0.0024]","[0.0001, 0.0026]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary precision,0.9732,0.9652,0.008,4/5,"[0.0059, 0.0105]","[0.0046, 0.0118]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary recall,0.9082,0.9112,-0.003,1/5,"[-0.0065, -0.0001]","[-0.0081, 0.0009]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary F1,0.9396,0.9373,0.0023,3/5,"[0.0002, 0.0041]","[-0.0004, 0.0044]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary FPR,0.0103,0.0136,-0.0033,4/5,"[-0.0042, -0.0024]","[-0.0049, -0.0018]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary FNR,0.0918,0.0888,0.003,1/5,"[0.0001, 0.0065]","[-0.0009, 0.0081]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,rare,rare F1,0.8012,0.7868,0.0144,3/5,"[-0.0072, 0.0376]","[-0.0228, 0.0516]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,rare,rare recall,0.8684,0.8321,0.0363,5/5,"[0.0202, 0.0579]","[0.0241, 0.0723]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,rare,rare precision,0.764,0.7925,-0.0285,1/5,"[-0.0639, 0.0030]","[-0.0795, 0.0109]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,rare,rare detection (binary head),0.987,0.9892,-0.0022,1/5,"[-0.0088, 0.0030]","[-0.0094, 0.0015]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,FTP-BF F1,0.9926,0.9976,-0.005,0/5,"[-0.0094, -0.0025]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,FTP-BF recall,0.9894,0.9978,-0.0084,0/5,"[-0.0123, -0.0039]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,SSH-BF F1,0.9995,0.9993,0.0002,2/5,"[-0.0000, 0.0007]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,SSH-BF recall,1.0,0.9996,0.0004,1/5,"[0.0000, 0.0013]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-GoldenEye F1,0.9829,0.9768,0.0061,3/5,"[-0.0421, 0.0152]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-GoldenEye recall,0.9807,0.9556,0.0252,4/5,"[0.0000, 0.0340]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-Slowloris F1,0.9983,0.9927,0.0056,2/5,"[-0.0028, 0.0318]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-Slowloris recall,1.0,1.0,0.0,0/5,"[0.0000, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-SlowHTTP F1,0.9881,0.9949,-0.0067,1/5,"[-0.0339, -0.0004]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-SlowHTTP recall,0.9986,0.9966,0.0021,3/5,"[0.0000, 0.0050]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-Hulk F1,0.9958,0.9986,-0.0028,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DoS-Hulk recall,1.0,1.0,0.0,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DDoS-LOIC-HTTP F1,0.9073,0.9306,-0.0233,0/5,"[-0.1288, -0.0005]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DDoS-LOIC-HTTP recall,0.8367,0.8747,-0.038,0/5,"[-0.1525, 0.0050]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DDoS-LOIC-UDP F1,0.8024,0.8433,-0.041,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DDoS-LOIC-UDP recall,1.0,0.9946,0.0054,2/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DDoS-HOIC F1,0.9978,0.9996,-0.0018,0/5,"[-0.0080, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,DDoS-HOIC recall,0.9993,1.0,-0.0007,0/5,"[-0.0017, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,Web-BF F1,0.7516,0.7696,-0.018,1/5,"[-0.0546, 0.0091]","[-0.1059, 0.0183]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,Web-BF recall,0.7637,0.6849,0.0789,5/5,"[0.0506, 0.1078]","[0.0454, 0.1113]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,XSS F1,0.4903,0.26,0.2303,5/5,"[0.1416, 0.3043]","[0.0835, 0.3043]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,XSS recall,0.466,0.2085,0.2574,5/5,"[0.1833, 0.3324]","[0.1929, 0.3750]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,SQL-Inj F1,0.5376,0.6495,-0.1119,0/5,"[-0.1622, -0.0690]","[-0.2036, -0.0561]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,SQL-Inj recall,0.7636,0.8339,-0.0703,1/5,"[-0.1276, -0.0130]","[-0.1018, -0.0265]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,Infiltration F1,0.882,0.8772,0.0048,4/5,"[0.0015, 0.0087]","[-0.0002, 0.0100]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,Infiltration recall,0.8334,0.8259,0.0075,3/5,"[0.0024, 0.0128]","[0.0008, 0.0139]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,Bot F1,0.9978,0.9983,-0.0005,1/5,"[-0.0011, 0.0001]","[-0.0014, 0.0003]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,Bot recall,0.9991,0.9999,-0.0008,0/5,"[-0.0015, -0.0003]","[-0.0016, 0.0000]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,binary,binary average precision,0.987,0.9862,0.0008,5/5,n/a,n/a,consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,multiclass,multiclass accuracy,0.9572,0.9577,-0.0006,1/5,"[-0.0015, 0.0003]","[-0.0017, 0.0005]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,multiclass,multiclass macro-F1,0.8866,0.8806,0.006,5/5,"[-0.0018, 0.0131]","[-0.0074, 0.0160]",consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,multiclass,multiclass weighted F1,0.9575,0.9581,-0.0006,2/5,"[-0.0015, 0.0003]","[-0.0018, 0.0006]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary accuracy,0.9659,0.9668,-0.0009,1/5,"[-0.0017, -0.0001]","[-0.0018, 0.0000]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary precision,0.9732,0.9697,0.0035,5/5,"[0.0021, 0.0050]","[0.0020, 0.0054]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary recall,0.9082,0.9147,-0.0065,0/5,"[-0.0089, -0.0043]","[-0.0092, -0.0039]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary F1,0.9396,0.9414,-0.0018,1/5,"[-0.0033, -0.0005]","[-0.0035, -0.0001]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary FPR,0.0103,0.0117,-0.0015,5/5,"[-0.0020, -0.0009]","[-0.0021, -0.0009]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary FNR,0.0918,0.0853,0.0065,0/5,"[0.0043, 0.0089]","[0.0039, 0.0092]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,rare,rare F1,0.8012,0.7844,0.0168,4/5,"[-0.0021, 0.0362]","[-0.0196, 0.0477]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,rare,rare recall,0.8684,0.8528,0.0156,5/5,"[0.0003, 0.0323]","[-0.0123, 0.0430]",consistent gain (5/5 seeds; CI includes 0)
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,rare,rare precision,0.764,0.7704,-0.0064,3/5,"[-0.0252, 0.0139]","[-0.0341, 0.0191]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,rare,rare detection (binary head),0.987,0.9885,-0.0015,0/5,"[-0.0051, 0.0012]","[-0.0057, 0.0011]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,FTP-BF F1,0.9926,0.9938,-0.0011,3/5,"[-0.0036, 0.0014]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,FTP-BF recall,0.9894,0.9916,-0.0022,3/5,"[-0.0040, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,SSH-BF F1,0.9995,0.9984,0.0011,2/5,"[0.0000, 0.0045]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,SSH-BF recall,1.0,1.0,0.0,0/5,"[0.0000, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-GoldenEye F1,0.9829,0.9829,0.0001,2/5,"[-0.0142, 0.0058]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-GoldenEye recall,0.9807,0.9778,0.003,2/5,"[0.0000, 0.0038]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-Slowloris F1,0.9983,0.9975,0.0008,1/5,"[-0.0020, 0.0061]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-Slowloris recall,1.0,1.0,0.0,0/5,"[0.0000, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-SlowHTTP F1,0.9881,0.9905,-0.0024,3/5,"[-0.0108, 0.0002]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-SlowHTTP recall,0.9986,0.9986,0.0,1/5,"[-0.0028, 0.0020]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-Hulk F1,0.9958,0.9986,-0.0028,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DoS-Hulk recall,1.0,1.0,0.0,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DDoS-LOIC-HTTP F1,0.9073,0.9124,-0.005,3/5,"[-0.0200, -0.0009]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DDoS-LOIC-HTTP recall,0.8367,0.8411,-0.0044,3/5,"[-0.0171, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DDoS-LOIC-UDP F1,0.8024,0.8113,-0.0089,2/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DDoS-LOIC-UDP recall,1.0,1.0,0.0,0/5,n/a,n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DDoS-HOIC F1,0.9978,0.9996,-0.0018,0/5,"[-0.0080, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,DDoS-HOIC recall,0.9993,1.0,-0.0007,0/5,"[-0.0017, 0.0000]",n/a,no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Web-BF F1,0.7516,0.7483,0.0033,2/5,"[-0.0081, 0.0148]","[-0.0091, 0.0222]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Web-BF recall,0.7637,0.7805,-0.0167,1/5,"[-0.0315, -0.0043]","[-0.0354, 0.0021]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,XSS F1,0.4903,0.3493,0.141,4/5,"[0.0476, 0.2272]","[-0.0347, 0.2347]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,XSS recall,0.466,0.2809,0.1851,4/5,"[0.1048, 0.2582]","[0.0323, 0.2783]",significant gain
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,SQL-Inj F1,0.5376,0.5668,-0.0293,1/5,"[-0.0564, -0.0025]","[-0.0605, 0.0031]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,SQL-Inj recall,0.7636,0.8582,-0.0945,1/5,"[-0.1445, -0.0468]","[-0.1368, -0.0392]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Infiltration F1,0.882,0.8869,-0.0049,0/5,"[-0.0081, -0.0019]","[-0.0089, -0.0003]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Infiltration recall,0.8334,0.8484,-0.0149,1/5,"[-0.0199, -0.0104]","[-0.0210, -0.0089]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Bot F1,0.9978,0.9973,0.0006,3/5,"[-0.0003, 0.0019]","[-0.0003, 0.0037]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Bot recall,0.9991,0.9996,-0.0005,1/5,"[-0.0011, 0.0000]","[-0.0009, 0.0003]",no clear difference
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary average precision,0.987,0.9871,-0.0001,1/5,n/a,n/a,no clear difference
