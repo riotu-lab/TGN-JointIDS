@@ -1,0 +1,11 @@
+,0
+total parameters,302224
+trainable parameters,302224
+"training time (min, mean ± sd)",84.4 ± 0.7
+"peak GPU memory, training (MB)",1743 ± 133
+best checkpoint update (mean ± sd),4620 ± 920
+best updates per seed,"[5900, 4000, 4000, 5300, 3900]"
+latency mean ms (mean over seeds),2.079291890829336
+latency median ms,1.9618487975094467
+latency P95 ms,2.823391814017652
+"peak GPU memory, inference (MB)",15.76806640625

@@ -17,8 +17,16 @@ class TGNJointIDS(nn.Module):
 
     def __init__(self, in_dim: int, hidden_dim: int, num_classes: int,
                  memory_dim: int = 96, num_layers: int = 3, num_heads: int = 4,
-                 dropout: float = 0.25, edge_dim: int = 5, sagpool_ratio: float = 0.6):
+                 dropout: float = 0.25, edge_dim: int = 5, sagpool_ratio: float = 0.6,
+                 pooling: str = "sagpool", use_edge_attr: bool = True):
+        """``pooling`` ("sagpool" | "mean") and ``use_edge_attr`` are ablation switches.
+        Every module is always constructed, so parameter initialisation is identical
+        across variants; an ablated module is simply not used in ``encode``."""
         super().__init__()
+        if pooling not in ("sagpool", "mean"):
+            raise ValueError(f"Unknown pooling: {pooling}")
+        self.pooling = pooling
+        self.use_edge_attr = bool(use_edge_attr)
         self.memory_dim = memory_dim
         self.hidden_dim = hidden_dim
         self.num_classes = num_classes
@@ -56,6 +64,9 @@ class TGNJointIDS(nn.Module):
         x = data.x.float()
         edge_index, batch = data.edge_index, data.batch
         edge_attr = data.edge_attr.float() if data.edge_attr is not None else None
+        if not self.use_edge_attr:
+            # Ablation: same edges/topology, no edge-attribute conditioning of attention
+            edge_attr = None
 
         if node_memory is not None and hasattr(data, "node_ids"):
             nids = data.node_ids.cpu().tolist()
@@ -71,12 +82,15 @@ class TGNJointIDS(nn.Module):
             x = self.dropout(norm(x + x_res))
         node_emb = x
 
-        try:
-            x_pool, _, _, batch_pool, _, _ = self.sagpool(x, edge_index, edge_attr, batch=batch)
-            graph_emb = global_mean_pool(x_pool, batch_pool)
-        except Exception:
-            # Fallback for degenerate (tiny) graphs
-            graph_emb = global_mean_pool(x, batch)
+        if self.pooling == "mean":
+            graph_emb = global_mean_pool(x, batch)       # ablation: no SAGPool
+        else:
+            try:
+                x_pool, _, _, batch_pool, _, _ = self.sagpool(x, edge_index, edge_attr, batch=batch)
+                graph_emb = global_mean_pool(x_pool, batch_pool)
+            except Exception:
+                # Fallback for degenerate (tiny) graphs
+                graph_emb = global_mean_pool(x, batch)
         return node_emb, self.pool_proj(graph_emb), nids
 
     def forward(self, data, node_memory=None):

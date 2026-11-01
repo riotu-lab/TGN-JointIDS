@@ -1,0 +1,19 @@
+\begin{table}
+\caption{Rare attacks (< 1% of training windows): attack-type F1, recall and precision averaged over the rare classes, and the share of rare-attack windows flagged by the binary head; test partition, mean ± SD over five seeds.}
+\label{tab:table_rare_summary}
+\begin{tabular}{llllll}
+\toprule
+ &  & rare F1 & rare recall & rare precision & rare detection (binary head) \\
+dataset & model &  &  &  &  \\
+\midrule
+\multirow[t]{3}{*}{NF-ToN-IoT-v3} & TGN-JointIDS & 0.806 ± 0.014 & 0.890 ± 0.015 & 0.737 ± 0.015 & 0.872 ± 0.006 \\
+ & w/o ENS & 0.841 ± 0.003 & 0.854 ± 0.014 & 0.829 ± 0.018 & 0.882 ± 0.019 \\
+ & Graph-only & 0.710 ± 0.033 & 0.875 ± 0.027 & 0.607 ± 0.056 & 0.725 ± 0.016 \\
+\cline{1-6}
+\multirow[t]{3}{*}{NF-CICIDS2018-v3} & TGN-JointIDS & 0.801 ± 0.005 & 0.868 ± 0.006 & 0.764 ± 0.006 & 0.987 ± 0.003 \\
+ & w/o ENS & 0.787 ± 0.020 & 0.832 ± 0.010 & 0.792 ± 0.022 & 0.989 ± 0.002 \\
+ & Graph-only & 0.771 ± 0.011 & 0.842 ± 0.014 & 0.734 ± 0.010 & 0.986 ± 0.005 \\
+\cline{1-6}
+\bottomrule
+\end{tabular}
+\end{table}

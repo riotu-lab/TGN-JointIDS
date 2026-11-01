@@ -1,0 +1,123 @@
+\begin{table}
+\caption{TGN-JointIDS minus each baseline on the key metrics (test, five paired seeds; 95\% CI from a 60-min cluster bootstrap; verdict uses the 10- and 60-min CIs; lower is better for FPR/FNR).}
+\label{tab:baselines_paired}
+\begin{tabular}{lllrrrlll}
+\toprule
+ &  & metric & TGN-JointIDS & baseline & Δ & seeds favourable & 95\% CI (60 min) & verdict \\
+dataset & comparison &  &  &  &  &  &  &  \\
+\midrule
+\multirow[t]{55}{*}{NF-ToN-IoT-v3} & TGN-JointIDS vs Random Forest & multiclass accuracy & 0.965800 & 0.960200 & 0.005600 & 5/5 & [0.0005, 0.0115] & significant gain \\
+ & TGN-JointIDS vs Random Forest & multiclass macro-F1 & 0.922500 & 0.887600 & 0.034900 & 5/5 & [0.0106, 0.0519] & significant gain \\
+ & TGN-JointIDS vs Random Forest & multiclass weighted F1 & 0.966600 & 0.960300 & 0.006300 & 5/5 & [0.0016, 0.0121] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary precision & 0.986700 & 0.971000 & 0.015700 & 5/5 & [0.0091, 0.0247] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary recall & 0.978400 & 0.984600 & -0.006200 & 0/5 & [-0.0117, -0.0019] & significant loss \\
+ & TGN-JointIDS vs Random Forest & binary F1 & 0.982500 & 0.977800 & 0.004800 & 5/5 & [0.0021, 0.0083] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary FPR & 0.071100 & 0.158300 & -0.087200 & 5/5 & [-0.1371, -0.0529] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary FNR & 0.021600 & 0.015400 & 0.006200 & 0/5 & [0.0019, 0.0117] & significant loss \\
+ & TGN-JointIDS vs Random Forest & rare F1 & 0.806100 & 0.657000 & 0.149100 & 5/5 & [0.0330, 0.2302] & significant gain \\
+ & TGN-JointIDS vs Random Forest & rare recall & 0.889700 & 0.598400 & 0.291300 & 5/5 & [0.1962, 0.4176] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary average precision & 0.998500 & 0.998600 & -0.000100 & 2/5 & n/a & no clear difference \\
+ & TGN-JointIDS vs XGBoost & multiclass accuracy & 0.965800 & 0.963300 & 0.002500 & 5/5 & [-0.0010, 0.0062] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs XGBoost & multiclass macro-F1 & 0.922500 & 0.907800 & 0.014700 & 5/5 & [-0.0038, 0.0256] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs XGBoost & multiclass weighted F1 & 0.966600 & 0.963800 & 0.002700 & 5/5 & [-0.0004, 0.0063] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs XGBoost & binary precision & 0.986700 & 0.975300 & 0.011400 & 5/5 & [0.0051, 0.0201] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary recall & 0.978400 & 0.983900 & -0.005500 & 0/5 & [-0.0129, 0.0001] & no clear difference \\
+ & TGN-JointIDS vs XGBoost & binary F1 & 0.982500 & 0.979600 & 0.002900 & 5/5 & [0.0013, 0.0050] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary FPR & 0.071100 & 0.134300 & -0.063200 & 5/5 & [-0.1125, -0.0306] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary FNR & 0.021600 & 0.016100 & 0.005500 & 0/5 & [-0.0001, 0.0129] & no clear difference \\
+ & TGN-JointIDS vs XGBoost & rare F1 & 0.806100 & 0.741700 & 0.064400 & 5/5 & [-0.0246, 0.1246] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs XGBoost & rare recall & 0.889700 & 0.753900 & 0.135800 & 5/5 & [0.0559, 0.2469] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary average precision & 0.998500 & 0.998800 & -0.000300 & 0/5 & n/a & no clear difference \\
+ & TGN-JointIDS vs Window-GRU & multiclass accuracy & 0.965800 & 0.960600 & 0.005200 & 5/5 & [0.0010, 0.0103] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & multiclass macro-F1 & 0.922500 & 0.905300 & 0.017200 & 5/5 & [-0.0045, 0.0337] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Window-GRU & multiclass weighted F1 & 0.966600 & 0.961400 & 0.005200 & 5/5 & [0.0013, 0.0102] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary precision & 0.986700 & 0.969100 & 0.017600 & 5/5 & [0.0081, 0.0310] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary recall & 0.978400 & 0.986900 & -0.008400 & 0/5 & [-0.0197, -0.0012] & significant loss \\
+ & TGN-JointIDS vs Window-GRU & binary F1 & 0.982500 & 0.977900 & 0.004600 & 5/5 & [0.0021, 0.0080] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary FPR & 0.071100 & 0.169400 & -0.098300 & 5/5 & [-0.1793, -0.0453] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary FNR & 0.021600 & 0.013100 & 0.008400 & 0/5 & [0.0012, 0.0197] & significant loss \\
+ & TGN-JointIDS vs Window-GRU & rare F1 & 0.806100 & 0.744200 & 0.061900 & 5/5 & [-0.0499, 0.1535] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Window-GRU & rare recall & 0.889700 & 0.774400 & 0.115300 & 5/5 & [0.0455, 0.3396] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary average precision & 0.998500 & 0.998500 & -0.000000 & 3/5 & n/a & no clear difference \\
+ & TGN-JointIDS vs E-GraphSAGE & multiclass accuracy & 0.965800 & 0.961100 & 0.004700 & 5/5 & [0.0015, 0.0084] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & multiclass macro-F1 & 0.922500 & 0.902600 & 0.019900 & 5/5 & [0.0053, 0.0393] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & multiclass weighted F1 & 0.966600 & 0.962000 & 0.004600 & 5/5 & [0.0015, 0.0080] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary precision & 0.986700 & 0.971600 & 0.015100 & 5/5 & [0.0073, 0.0256] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary recall & 0.978400 & 0.985700 & -0.007200 & 0/5 & [-0.0163, -0.0011] & significant loss \\
+ & TGN-JointIDS vs E-GraphSAGE & binary F1 & 0.982500 & 0.978600 & 0.004000 & 5/5 & [0.0020, 0.0063] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary FPR & 0.071100 & 0.155500 & -0.084400 & 5/5 & [-0.1439, -0.0426] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary FNR & 0.021600 & 0.014300 & 0.007200 & 0/5 & [0.0011, 0.0163] & significant loss \\
+ & TGN-JointIDS vs E-GraphSAGE & rare F1 & 0.806100 & 0.720200 & 0.085900 & 5/5 & [0.0176, 0.1868] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & rare recall & 0.889700 & 0.792300 & 0.097400 & 5/5 & [-0.0280, 0.2576] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs E-GraphSAGE & binary average precision & 0.998500 & 0.998600 & -0.000100 & 2/5 & n/a & no clear difference \\
+ & TGN-JointIDS vs Graph-only & multiclass accuracy & 0.965800 & 0.960900 & 0.004900 & 5/5 & [0.0024, 0.0078] & significant gain \\
+ & TGN-JointIDS vs Graph-only & multiclass macro-F1 & 0.922500 & 0.900900 & 0.021600 & 5/5 & [0.0061, 0.0361] & significant gain \\
+ & TGN-JointIDS vs Graph-only & multiclass weighted F1 & 0.966600 & 0.962300 & 0.004200 & 5/5 & [0.0018, 0.0068] & significant gain \\
+ & TGN-JointIDS vs Graph-only & binary precision & 0.986700 & 0.987200 & -0.000500 & 3/5 & [-0.0026, 0.0013] & no clear difference \\
+ & TGN-JointIDS vs Graph-only & binary recall & 0.978400 & 0.973700 & 0.004700 & 5/5 & [0.0015, 0.0090] & significant gain \\
+ & TGN-JointIDS vs Graph-only & binary F1 & 0.982500 & 0.980400 & 0.002100 & 5/5 & [0.0006, 0.0042] & significant gain \\
+ & TGN-JointIDS vs Graph-only & binary FPR & 0.071100 & 0.067900 & 0.003200 & 3/5 & [-0.0071, 0.0148] & no clear difference \\
+ & TGN-JointIDS vs Graph-only & binary FNR & 0.021600 & 0.026300 & -0.004700 & 5/5 & [-0.0090, -0.0015] & significant gain \\
+ & TGN-JointIDS vs Graph-only & rare F1 & 0.806100 & 0.709600 & 0.096500 & 5/5 & [0.0313, 0.1778] & significant gain \\
+ & TGN-JointIDS vs Graph-only & rare recall & 0.889700 & 0.875400 & 0.014300 & 4/5 & [-0.0907, 0.1142] & no clear difference \\
+ & TGN-JointIDS vs Graph-only & binary average precision & 0.998500 & 0.998500 & -0.000000 & 3/5 & n/a & no clear difference \\
+\cline{1-9}
+\multirow[t]{55}{*}{NF-CICIDS2018-v3} & TGN-JointIDS vs Random Forest & multiclass accuracy & 0.957200 & 0.839000 & 0.118200 & 5/5 & [0.0898, 0.1454] & significant gain \\
+ & TGN-JointIDS vs Random Forest & multiclass macro-F1 & 0.886600 & 0.756100 & 0.130600 & 5/5 & [0.0913, 0.1797] & significant gain \\
+ & TGN-JointIDS vs Random Forest & multiclass weighted F1 & 0.957500 & 0.827800 & 0.129600 & 5/5 & [0.0967, 0.1595] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary precision & 0.973200 & 0.664400 & 0.308800 & 5/5 & [0.2389, 0.3873] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary recall & 0.908200 & 0.822500 & 0.085700 & 5/5 & [0.0608, 0.1099] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary F1 & 0.939600 & 0.734100 & 0.205500 & 5/5 & [0.1606, 0.2609] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary FPR & 0.010300 & 0.172400 & -0.162100 & 5/5 & [-0.2039, -0.1275] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary FNR & 0.091800 & 0.177500 & -0.085700 & 5/5 & [-0.1099, -0.0608] & significant gain \\
+ & TGN-JointIDS vs Random Forest & rare F1 & 0.801200 & 0.710800 & 0.090400 & 5/5 & [0.0453, 0.1702] & significant gain \\
+ & TGN-JointIDS vs Random Forest & rare recall & 0.868400 & 0.723200 & 0.145200 & 5/5 & [0.0958, 0.2305] & significant gain \\
+ & TGN-JointIDS vs Random Forest & binary average precision & 0.987000 & 0.852500 & 0.134500 & 5/5 & n/a & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs XGBoost & multiclass accuracy & 0.957200 & 0.902500 & 0.054700 & 5/5 & [0.0413, 0.0676] & significant gain \\
+ & TGN-JointIDS vs XGBoost & multiclass macro-F1 & 0.886600 & 0.819900 & 0.066700 & 5/5 & [0.0173, 0.1028] & significant gain \\
+ & TGN-JointIDS vs XGBoost & multiclass weighted F1 & 0.957500 & 0.897400 & 0.060100 & 5/5 & [0.0448, 0.0758] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary precision & 0.973200 & 0.857900 & 0.115400 & 5/5 & [0.0822, 0.1550] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary recall & 0.908200 & 0.832400 & 0.075800 & 5/5 & [0.0534, 0.1041] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary F1 & 0.939600 & 0.844900 & 0.094700 & 5/5 & [0.0713, 0.1250] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary FPR & 0.010300 & 0.056800 & -0.046500 & 5/5 & [-0.0592, -0.0346] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary FNR & 0.091800 & 0.167600 & -0.075800 & 5/5 & [-0.1041, -0.0534] & significant gain \\
+ & TGN-JointIDS vs XGBoost & rare F1 & 0.801200 & 0.777800 & 0.023400 & 5/5 & [-0.0314, 0.0802] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs XGBoost & rare recall & 0.868400 & 0.791800 & 0.076600 & 5/5 & [0.0333, 0.1405] & significant gain \\
+ & TGN-JointIDS vs XGBoost & binary average precision & 0.987000 & 0.935700 & 0.051300 & 5/5 & n/a & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Window-GRU & multiclass accuracy & 0.957200 & 0.855500 & 0.101700 & 5/5 & [0.0718, 0.1335] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & multiclass macro-F1 & 0.886600 & 0.833700 & 0.052900 & 5/5 & [0.0055, 0.0899] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & multiclass weighted F1 & 0.957500 & 0.875900 & 0.081500 & 5/5 & [0.0578, 0.1079] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary precision & 0.973200 & 0.691400 & 0.281900 & 5/5 & [0.2126, 0.3566] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary recall & 0.908200 & 0.934800 & -0.026600 & 0/5 & [-0.0530, 0.0005] & no clear difference \\
+ & TGN-JointIDS vs Window-GRU & binary F1 & 0.939600 & 0.794800 & 0.144700 & 5/5 & [0.1012, 0.1985] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary FPR & 0.010300 & 0.171700 & -0.161400 & 5/5 & [-0.2125, -0.1162] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary FNR & 0.091800 & 0.065200 & 0.026600 & 0/5 & [-0.0005, 0.0530] & no clear difference \\
+ & TGN-JointIDS vs Window-GRU & rare F1 & 0.801200 & 0.787100 & 0.014100 & 5/5 & [-0.0407, 0.0794] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Window-GRU & rare recall & 0.868400 & 0.826000 & 0.042400 & 5/5 & [0.0101, 0.1206] & significant gain \\
+ & TGN-JointIDS vs Window-GRU & binary average precision & 0.987000 & 0.942300 & 0.044700 & 5/5 & n/a & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs E-GraphSAGE & multiclass accuracy & 0.957200 & 0.900700 & 0.056500 & 5/5 & [0.0424, 0.0707] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & multiclass macro-F1 & 0.886600 & 0.839900 & 0.046800 & 5/5 & [-0.0086, 0.0812] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs E-GraphSAGE & multiclass weighted F1 & 0.957500 & 0.905500 & 0.051900 & 5/5 & [0.0382, 0.0653] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary precision & 0.973200 & 0.791900 & 0.181300 & 5/5 & [0.1324, 0.2317] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary recall & 0.908200 & 0.921900 & -0.013800 & 1/5 & [-0.0360, 0.0070] & no clear difference \\
+ & TGN-JointIDS vs E-GraphSAGE & binary F1 & 0.939600 & 0.851600 & 0.088000 & 5/5 & [0.0638, 0.1163] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary FPR & 0.010300 & 0.100400 & -0.090100 & 5/5 & [-0.1193, -0.0659] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary FNR & 0.091800 & 0.078100 & 0.013800 & 1/5 & [-0.0070, 0.0360] & no clear difference \\
+ & TGN-JointIDS vs E-GraphSAGE & rare F1 & 0.801200 & 0.750200 & 0.051000 & 5/5 & [-0.0069, 0.1298] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs E-GraphSAGE & rare recall & 0.868400 & 0.805500 & 0.062900 & 5/5 & [0.0296, 0.1212] & significant gain \\
+ & TGN-JointIDS vs E-GraphSAGE & binary average precision & 0.987000 & 0.949400 & 0.037600 & 5/5 & n/a & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Graph-only & multiclass accuracy & 0.957200 & 0.948800 & 0.008400 & 5/5 & [0.0049, 0.0121] & significant gain \\
+ & TGN-JointIDS vs Graph-only & multiclass macro-F1 & 0.886600 & 0.859100 & 0.027600 & 5/5 & [0.0187, 0.0411] & significant gain \\
+ & TGN-JointIDS vs Graph-only & multiclass weighted F1 & 0.957500 & 0.949200 & 0.008300 & 5/5 & [0.0042, 0.0125] & significant gain \\
+ & TGN-JointIDS vs Graph-only & binary precision & 0.973200 & 0.970200 & 0.003100 & 2/5 & [-0.0017, 0.0087] & no clear difference \\
+ & TGN-JointIDS vs Graph-only & binary recall & 0.908200 & 0.889200 & 0.018900 & 4/5 & [0.0068, 0.0339] & significant gain \\
+ & TGN-JointIDS vs Graph-only & binary F1 & 0.939600 & 0.927900 & 0.011700 & 5/5 & [0.0046, 0.0209] & significant gain \\
+ & TGN-JointIDS vs Graph-only & binary FPR & 0.010300 & 0.011300 & -0.001000 & 1/5 & [-0.0029, 0.0010] & no clear difference \\
+ & TGN-JointIDS vs Graph-only & binary FNR & 0.091800 & 0.110800 & -0.018900 & 4/5 & [-0.0339, -0.0068] & significant gain \\
+ & TGN-JointIDS vs Graph-only & rare F1 & 0.801200 & 0.771400 & 0.029800 & 5/5 & [0.0136, 0.0628] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Graph-only & rare recall & 0.868400 & 0.842200 & 0.026200 & 5/5 & [0.0079, 0.0658] & consistent gain (5/5 seeds; CI includes 0) \\
+ & TGN-JointIDS vs Graph-only & binary average precision & 0.987000 & 0.980400 & 0.006600 & 5/5 & n/a & consistent gain (5/5 seeds; CI includes 0) \\
+\cline{1-9}
+\bottomrule
+\end{tabular}
+\end{table}

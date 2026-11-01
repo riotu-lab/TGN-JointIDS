@@ -1,0 +1,15 @@
+\begin{table}
+\caption{NF-CICIDS2018-v3 ablations of TGN-JointIDS, five seeds, identical protocol (only the named switch differs).}
+\label{tab:table7_ablations}
+\begin{tabular}{llllllllllllll}
+\toprule
+ & macro-F1 (raw) & accuracy (raw) & weighted F1 (raw) & macro-F1 (gated) & binary F1 & binary FPR & binary FNR & DoS-GoldenEye F1 & DoS-Hulk F1 & XSS F1 & DDoS-LOIC-UDP F1 & val macro-F1 & training time (min) \\
+model &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+TGN-JointIDS & 0.8866 ± 0.0022 & 0.9572 ± 0.0007 & 0.9575 ± 0.0007 & 0.8906 ± 0.0020 & 0.9396 ± 0.0026 & 0.0103 ± 0.0015 & 0.0918 ± 0.0060 & 0.983 ± 0.004 & 0.996 ± 0.006 & 0.490 ± 0.041 & 0.802 ± 0.008 & 0.8961 ± 0.0020 & 237.2 ± 27.4 \\
+w/o ENS & 0.8842 ± 0.0070 & 0.9586 ± 0.0026 & 0.9572 ± 0.0028 & 0.8843 ± 0.0069 & 0.9373 ± 0.0041 & 0.0136 ± 0.0034 & 0.0888 ± 0.0139 & 0.977 ± 0.025 & 0.999 ± 0.003 & 0.260 ± 0.180 & 0.843 ± 0.035 & 0.8921 ± 0.0065 & 224.9 ± 26.6 \\
+Graph-only (no memory) & 0.8591 ± 0.0072 & 0.9488 ± 0.0026 & 0.9492 ± 0.0021 & 0.8570 ± 0.0042 & 0.9279 ± 0.0021 & 0.0113 ± 0.0030 & 0.1108 ± 0.0094 & 0.970 ± 0.009 & 0.993 ± 0.005 & 0.365 ± 0.080 & 0.819 ± 0.010 & 0.8775 ± 0.0051 & 41.0 ± 7.7 \\
+Frozen GRU & 0.8822 ± 0.0052 & 0.9559 ± 0.0008 & 0.9563 ± 0.0008 & 0.8854 ± 0.0059 & 0.9367 ± 0.0051 & 0.0124 ± 0.0024 & 0.0924 ± 0.0141 & 0.984 ± 0.005 & 0.996 ± 0.006 & 0.428 ± 0.064 & 0.821 ± 0.021 & 0.8954 ± 0.0057 & 243.4 ± 2.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

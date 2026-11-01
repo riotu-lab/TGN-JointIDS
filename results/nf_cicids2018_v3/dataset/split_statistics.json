@@ -1,0 +1,166 @@
+{
+ "bundle": "data/processed/nf_cicids2018_v3_final_p2_c20r100.pt",
+ "protocol": "block_stratified",
+ "forward_in_time": false,
+ "priority_classes": {
+  "sql_injection": 284,
+  "brute_force_-xss": 310,
+  "brute_force_-web": 957
+ },
+ "priority_order_is_rarest_first_on_train": true,
+ "data": {
+  "rows": 4571570,
+  "labels": {
+   "benign": 3502925,
+   "ddos_attack-hoic": 206462,
+   "ssh-bruteforce": 188474,
+   "infilteration": 188152,
+   "dos_attacks-slowhttptest": 105550,
+   "dos_attacks-hulk": 100076,
+   "ftp-bruteforce": 77344,
+   "dos_attacks-goldeneye": 61300,
+   "ddos_attacks-loic-http": 57718,
+   "bot": 41541,
+   "dos_attacks-slowloris": 36040,
+   "ddos_attack-loic-udp": 3450,
+   "brute_force_-web": 1618,
+   "brute_force_-xss": 480,
+   "sql_injection": 440
+  },
+  "csv_sha256": "049cc8af72d5ab1d83487b14461eac48d6f3b733689773c7801c5f7ef191f232"
+ },
+ "t0_ms": 1518611287705,
+ "block_ms": 60000,
+ "window_id_units": "unix_ms_window_start",
+ "split_sha256": "321d145812c8ae7ad4c8f4c33c005431dd6ab6efbf8c4f75bfb519b9d1564e37",
+ "graphs_per_partition": {
+  "train": 81267,
+  "val": 20428,
+  "stream": 33400
+ },
+ "graph_label_counts": {
+  "train": {
+   "benign": 57569,
+   "ftp-bruteforce": 1570,
+   "ssh-bruteforce": 1162,
+   "dos_attacks-goldeneye": 155,
+   "dos_attacks-slowloris": 635,
+   "dos_attacks-slowhttptest": 839,
+   "dos_attacks-hulk": 183,
+   "ddos_attacks-loic-http": 920,
+   "ddos_attack-loic-udp": 295,
+   "ddos_attack-hoic": 830,
+   "brute_force_-web": 1157,
+   "brute_force_-xss": 224,
+   "sql_injection": 526,
+   "infilteration": 10621,
+   "bot": 4581
+  },
+  "val": {
+   "benign": 14137,
+   "ftp-bruteforce": 216,
+   "ssh-bruteforce": 466,
+   "dos_attacks-goldeneye": 43,
+   "dos_attacks-slowloris": 120,
+   "dos_attacks-slowhttptest": 144,
+   "dos_attacks-hulk": 24,
+   "ddos_attacks-loic-http": 399,
+   "ddos_attack-loic-udp": 86,
+   "ddos_attack-hoic": 160,
+   "brute_force_-web": 332,
+   "brute_force_-xss": 43,
+   "sql_injection": 125,
+   "infilteration": 2746,
+   "bot": 1387
+  },
+  "stream": {
+   "benign": 23666,
+   "ftp-bruteforce": 546,
+   "ssh-bruteforce": 552,
+   "dos_attacks-goldeneye": 135,
+   "dos_attacks-slowloris": 240,
+   "dos_attacks-slowhttptest": 291,
+   "dos_attacks-hulk": 71,
+   "ddos_attacks-loic-http": 316,
+   "ddos_attack-loic-udp": 112,
+   "ddos_attack-hoic": 274,
+   "brute_force_-web": 502,
+   "brute_force_-xss": 94,
+   "sql_injection": 165,
+   "infilteration": 4455,
+   "bot": 1981
+  }
+ },
+ "heldout": {
+  "classes_full": [
+   "benign",
+   "ftp-bruteforce",
+   "ssh-bruteforce",
+   "dos_attacks-goldeneye",
+   "dos_attacks-slowloris",
+   "dos_attacks-slowhttptest",
+   "dos_attacks-hulk",
+   "ddos_attacks-loic-http",
+   "ddos_attack-loic-udp",
+   "ddos_attack-hoic",
+   "brute_force_-web",
+   "brute_force_-xss",
+   "sql_injection",
+   "infilteration",
+   "bot"
+  ],
+  "heldout_windows": 0
+ },
+ "mixed_windows": {
+  "train": {
+   "windows_2plus_attack_classes": 575,
+   "label_changed_by_priority": {
+    "brute_force_-web -> brute_force_-xss": 197,
+    "brute_force_-xss -> sql_injection": 300,
+    "brute_force_-web -> sql_injection": 68
+   }
+  },
+  "val": {
+   "windows_2plus_attack_classes": 123,
+   "label_changed_by_priority": {
+    "brute_force_-web -> brute_force_-xss": 43,
+    "brute_force_-web -> sql_injection": 17,
+    "brute_force_-xss -> sql_injection": 62
+   }
+  },
+  "stream": {
+   "windows_2plus_attack_classes": 209,
+   "label_changed_by_priority": {
+    "brute_force_-web -> brute_force_-xss": 86,
+    "brute_force_-xss -> sql_injection": 99,
+    "brute_force_-web -> sql_injection": 21
+   }
+  }
+ },
+ "leakage_checks": {
+  "flows_per_partition": {
+   "train": 2742942,
+   "val": 685736,
+   "stream": 1142892
+  },
+  "blocks_per_partition": {
+   "train": 3802,
+   "val": 981,
+   "stream": 1541
+  },
+  "exact_duplicate_flows_across_partitions": 0,
+  "exact_duplicate_rows_within_partitions": 233684,
+  "stream_flows_with_feature_identical_train_flow_pct": 53.74523577030901
+ },
+ "identity_overlap": {
+  "val": {
+   "windows_all_ips_seen_in_train_pct": 38.14861954180537,
+   "windows_no_ip_seen_in_train_pct": 0.0
+  },
+  "stream": {
+   "windows_all_ips_seen_in_train_pct": 37.137724550898206,
+   "windows_no_ip_seen_in_train_pct": 0.0
+  }
+ },
+ "build_seconds": 149.41888523101807
+}

@@ -1,0 +1,22 @@
+dataset,comparison,group,metric,TGN-JointIDS,ablation,Δ,seeds favourable,95% CI (10 min),95% CI (60 min),verdict
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass accuracy,0.9658,0.9686,-0.0027,0/5,"[-0.0045, -0.0014]","[-0.0049, -0.0010]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass macro-F1,0.9225,0.9309,-0.0084,0/5,"[-0.0171, -0.0028]","[-0.0211, -0.0012]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,multiclass,multiclass weighted F1,0.9666,0.9687,-0.0021,0/5,"[-0.0037, -0.0009]","[-0.0040, -0.0006]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary recall,0.9784,0.9826,-0.0042,0/5,"[-0.0068, -0.0019]","[-0.0087, -0.0010]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,binary,binary FNR,0.0216,0.0174,0.0042,0/5,"[0.0019, 0.0068]","[0.0010, 0.0087]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,rare,rare F1,0.8061,0.8406,-0.0345,0/5,"[-0.0758, -0.0082]","[-0.0984, -0.0028]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,rare,rare precision,0.7373,0.8294,-0.0921,0/5,"[-0.1361, -0.0565]","[-0.1616, -0.0477]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Backdoor recall,0.9966,0.9975,-0.0009,0/5,"[-0.0018, -0.0002]","[-0.0024, -0.0000]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o ENS,per class,Injection F1,0.9697,0.9776,-0.0078,0/5,"[-0.0226, -0.0009]","[-0.0452, -0.0002]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary precision,0.9867,0.9876,-0.0009,2/5,"[-0.0014, -0.0004]","[-0.0016, -0.0002]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,binary,binary FPR,0.0711,0.0664,0.0048,2/5,"[0.0023, 0.0074]","[0.0015, 0.0092]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,rare,rare precision,0.7373,0.7619,-0.0246,1/5,"[-0.0487, -0.0038]","[-0.0576, -0.0043]",significant loss
+NF-ToN-IoT-v3,TGN-JointIDS vs w/o focal,per class,Scanning recall,0.8259,0.8405,-0.0146,2/5,"[-0.0314, -0.0035]","[-0.0358, -0.0019]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,SQL-Inj F1,0.5376,0.6495,-0.1119,0/5,"[-0.1622, -0.0690]","[-0.2036, -0.0561]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o ENS,per class,SQL-Inj recall,0.7636,0.8339,-0.0703,1/5,"[-0.1276, -0.0130]","[-0.1018, -0.0265]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary recall,0.9082,0.9147,-0.0065,0/5,"[-0.0089, -0.0043]","[-0.0092, -0.0039]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary F1,0.9396,0.9414,-0.0018,1/5,"[-0.0033, -0.0005]","[-0.0035, -0.0001]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,binary,binary FNR,0.0918,0.0853,0.0065,0/5,"[0.0043, 0.0089]","[0.0039, 0.0092]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,SQL-Inj recall,0.7636,0.8582,-0.0945,1/5,"[-0.1445, -0.0468]","[-0.1368, -0.0392]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Infiltration F1,0.882,0.8869,-0.0049,0/5,"[-0.0081, -0.0019]","[-0.0089, -0.0003]",significant loss
+NF-CICIDS2018-v3,TGN-JointIDS vs w/o focal,per class,Infiltration recall,0.8334,0.8484,-0.0149,1/5,"[-0.0199, -0.0104]","[-0.0210, -0.0089]",significant loss

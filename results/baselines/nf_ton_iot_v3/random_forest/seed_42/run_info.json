@@ -1,0 +1,45 @@
+{
+ "model": "random_forest",
+ "seed": 42,
+ "feats": "data/processed/baselines/nf_ton_iot_v3_m1_tbptt_winfeat.npz",
+ "selected": {
+  "max_depth": 24,
+  "min_samples_leaf": 3
+ },
+ "best_val_macro_f1": 0.8911709362365098,
+ "grid": [
+  {
+   "max_depth": null,
+   "min_samples_leaf": 1,
+   "val_macro_f1": 0.8769167415047161,
+   "fit_seconds": 11.97172650997527
+  },
+  {
+   "max_depth": null,
+   "min_samples_leaf": 3,
+   "val_macro_f1": 0.8911645136014996,
+   "fit_seconds": 11.534773597028106
+  },
+  {
+   "max_depth": 24,
+   "min_samples_leaf": 1,
+   "val_macro_f1": 0.8780333110158622,
+   "fit_seconds": 11.703655602002982
+  },
+  {
+   "max_depth": 24,
+   "min_samples_leaf": 3,
+   "val_macro_f1": 0.8911709362365098,
+   "fit_seconds": 11.057315791025758
+  }
+ ],
+ "train_seconds_total": 46.28288254700601,
+ "latency": {
+  "windows": 1980,
+  "mean_ms": 34.045577668696595,
+  "median_ms": 33.52766900206916,
+  "p95_ms": 44.01286205393262,
+  "p99_ms": 47.364042980480015,
+  "note": "model inference only, one window per call; feature summary not included"
+ }
+}

@@ -6,19 +6,28 @@ build/
 dist/
 .venv/
 .env
+.pytest_cache/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Data & artefacts (not versioned)
+# Data (not redistributed; see data/README.md)
 data/raw/
 data/processed/
-*.csv
+
+# Large run artefacts: model checkpoints, raw predictions, logs
+# (tables, statistics, figures and run_info/history JSON files under results/ are versioned)
 *.pt
 *.pth
 *.ckpt
-results/*
-!results/.gitkeep
+results/**/predictions_*.npz
+results/**/logs/
+*.log
+results.zip
+
+# Internal working notes (not part of the code release)
+_internal/
+results/PAPER_WRITING_GUIDE.md
 
 # OS / IDE
 .DS_Store

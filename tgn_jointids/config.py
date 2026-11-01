@@ -40,5 +40,5 @@ def load_config(path: str | Path, overrides: dict | None = None) -> Config:
         *parents, leaf = dotted.split(".")
         for p in parents:
             node = node[p]
-        node[leaf] = value
+        node[leaf] = Config(value) if isinstance(value, dict) else value
     return cfg

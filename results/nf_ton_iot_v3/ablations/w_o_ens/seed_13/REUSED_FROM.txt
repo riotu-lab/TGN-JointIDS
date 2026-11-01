@@ -1,0 +1,1 @@
+Copied unchanged from results/final_architecture_selection_seed13/B/trainable/seed_13 (original kept). Verified 2026-10-20: identical to Architecture A protocol except loss.multi_weighting=none; split sha256 c04b67da...; 7,000 updates.

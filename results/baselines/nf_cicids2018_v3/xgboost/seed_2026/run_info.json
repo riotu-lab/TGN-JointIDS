@@ -1,0 +1,54 @@
+{
+ "model": "xgboost",
+ "seed": 2026,
+ "feats": "data/processed/baselines/nf_cicids2018_v3_final_p2_winfeat.npz",
+ "selected": {
+  "max_depth": 10,
+  "learning_rate": 0.1,
+  "min_child_weight": 5
+ },
+ "best_val_macro_f1": 0.8282244478699321,
+ "grid": [
+  {
+   "max_depth": 6,
+   "learning_rate": 0.1,
+   "min_child_weight": 1,
+   "val_macro_f1": 0.8267188700425429,
+   "fit_seconds": 19.455725835985504,
+   "best_iteration": 982
+  },
+  {
+   "max_depth": 6,
+   "learning_rate": 0.1,
+   "min_child_weight": 5,
+   "val_macro_f1": 0.8220973910898298,
+   "fit_seconds": 20.405257350998,
+   "best_iteration": 1212
+  },
+  {
+   "max_depth": 10,
+   "learning_rate": 0.1,
+   "min_child_weight": 1,
+   "val_macro_f1": 0.8228726289093332,
+   "fit_seconds": 18.033281159005128,
+   "best_iteration": 343
+  },
+  {
+   "max_depth": 10,
+   "learning_rate": 0.1,
+   "min_child_weight": 5,
+   "val_macro_f1": 0.8282244478699321,
+   "fit_seconds": 20.32144234405132,
+   "best_iteration": 693
+  }
+ ],
+ "train_seconds_total": 78.23282569402363,
+ "latency": {
+  "windows": 1980,
+  "mean_ms": 45.0386562466097,
+  "median_ms": 44.17438997188583,
+  "p95_ms": 50.8812801563181,
+  "p99_ms": 52.169147628592334,
+  "note": "model inference only, one window per call; feature summary not included"
+ }
+}
